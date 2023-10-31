@@ -19,7 +19,7 @@ namespace Projeto_Venda_2023
         public FrmPrincipal()
         {
             InitializeComponent();
-            carregaSexo();
+            //carregaSexo();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,7 +28,7 @@ namespace Projeto_Venda_2023
             frc.ShowDialog();
         }
 
-        public void carregaSexo()
+        /*public void carregaSexo()
         {
             C_Sexo cs = new C_Sexo();
 
@@ -39,17 +39,13 @@ namespace Projeto_Venda_2023
             comboBox1.DataSource = aux;
             comboBox1.DisplayMember = "nomesexo";
             comboBox1.ValueMember = "codsexo";
-        }
+        }*/
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            frm_Trabalho trab = new frm_Trabalho();
-            trab.ShowDialog();
-        }
+        
     }
 }

@@ -17,5 +17,9 @@ namespace Projeto_Venda_2023.view
             InitializeComponent();
         }
 
+        private void frm_Sexo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

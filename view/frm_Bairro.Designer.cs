@@ -126,7 +126,7 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(361, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(549, 25);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -185,7 +185,7 @@
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(180, 23);
+            this.txtBuscar.Size = new System.Drawing.Size(180, 25);
             // 
             // btnBuscar
             // 
@@ -193,7 +193,7 @@
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(23, 20);
+            this.btnBuscar.Size = new System.Drawing.Size(23, 22);
             this.btnBuscar.Text = "toolStripButton1";
             this.btnBuscar.ToolTipText = "Buscar Cliente";
             // 
@@ -208,7 +208,7 @@
             this.btnPrimeiro.Image = ((System.Drawing.Image)(resources.GetObject("btnPrimeiro.Image")));
             this.btnPrimeiro.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPrimeiro.Name = "btnPrimeiro";
-            this.btnPrimeiro.Size = new System.Drawing.Size(23, 20);
+            this.btnPrimeiro.Size = new System.Drawing.Size(23, 22);
             this.btnPrimeiro.Text = "toolStripButton1";
             this.btnPrimeiro.ToolTipText = "Primeiro Registro";
             // 
@@ -218,7 +218,7 @@
             this.btnAnterior.Image = ((System.Drawing.Image)(resources.GetObject("btnAnterior.Image")));
             this.btnAnterior.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.Size = new System.Drawing.Size(23, 20);
+            this.btnAnterior.Size = new System.Drawing.Size(23, 22);
             this.btnAnterior.Text = "Registro Anterior";
             // 
             // btnProximo
@@ -227,7 +227,7 @@
             this.btnProximo.Image = ((System.Drawing.Image)(resources.GetObject("btnProximo.Image")));
             this.btnProximo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnProximo.Name = "btnProximo";
-            this.btnProximo.Size = new System.Drawing.Size(23, 20);
+            this.btnProximo.Size = new System.Drawing.Size(23, 22);
             this.btnProximo.Text = "toolStripButton1";
             this.btnProximo.ToolTipText = "Próximo Registro";
             // 
@@ -237,7 +237,7 @@
             this.btnUltimo.Image = ((System.Drawing.Image)(resources.GetObject("btnUltimo.Image")));
             this.btnUltimo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnUltimo.Name = "btnUltimo";
-            this.btnUltimo.Size = new System.Drawing.Size(23, 20);
+            this.btnUltimo.Size = new System.Drawing.Size(23, 22);
             this.btnUltimo.Text = "toolStripButton1";
             this.btnUltimo.ToolTipText = "Último Registro";
             // 
@@ -252,7 +252,7 @@
             this.btnRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorio.Image")));
             this.btnRelatorio.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRelatorio.Name = "btnRelatorio";
-            this.btnRelatorio.Size = new System.Drawing.Size(23, 20);
+            this.btnRelatorio.Size = new System.Drawing.Size(23, 22);
             this.btnRelatorio.Text = "toolStripButton1";
             this.btnRelatorio.ToolTipText = "Gerar Relatório";
             // 
@@ -262,14 +262,14 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
             // frm_Bairro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 384);
+            this.ClientSize = new System.Drawing.Size(549, 384);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(nomebairroLabel);
             this.Controls.Add(this.nomebairroTextBox);
