@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Projeto_Venda_2023.model
+{
+    internal class ItensTelefoneTrabalho
+    {
+        public Trabalho Trabalho { get; set; }
+
+        public Telefone Telefone { get; set; }
+
+        public ItensTelefoneTrabalho () { }
+    
+    }
+}
