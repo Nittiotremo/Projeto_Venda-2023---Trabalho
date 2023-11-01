@@ -254,33 +254,33 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(115, 70);
+            this.label2.Location = new System.Drawing.Point(9, 101);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 24;
-            this.label2.Text = "Nome";
+            this.label2.Text = "Trabalho";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 70);
+            this.label1.Location = new System.Drawing.Point(9, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 13);
+            this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 23;
-            this.label1.Text = "Id";
+            this.label1.Text = "Código";
             // 
             // txtNome
             // 
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNome.Location = new System.Drawing.Point(115, 86);
+            this.txtNome.Location = new System.Drawing.Point(9, 117);
             this.txtNome.MaxLength = 50;
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(344, 20);
+            this.txtNome.Size = new System.Drawing.Size(230, 20);
             this.txtNome.TabIndex = 22;
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(9, 86);
+            this.txtId.Location = new System.Drawing.Point(9, 70);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(100, 20);

@@ -255,7 +255,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(3, 102);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(135, 20);
+            this.textBox1.Size = new System.Drawing.Size(171, 20);
             this.textBox1.TabIndex = 45;
             // 
             // label7
@@ -263,9 +263,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(0, 86);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 13);
+            this.label7.Size = new System.Drawing.Size(34, 13);
             this.label7.TabIndex = 44;
-            this.label7.Text = "Acesso";
+            this.label7.Text = "Bairro";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label1
