@@ -12,12 +12,9 @@ namespace Projeto_Venda_2023
 {
     public partial class frm_Acesso : Form
     {
-        private ComboBox comboBox1;
         private Label label10;
         private Label lblTotal;
         private DataGridView dataGridView1;
-        private Label label7;
-        private Label label2;
         private ToolStrip toolStrip1;
         private ToolStripButton tsbNovo;
         private ToolStripButton tsbSalvar;
@@ -34,8 +31,11 @@ namespace Projeto_Venda_2023
         private ToolStripButton btnUltimo;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripButton btnRelatorio;
+        private Label label1;
+        private TextBox txtId;
+        private TextBox textBox1;
+        private Label label7;
         private ToolStripButton toolStripButton1;
-        private TextBox txtNome;
 
         public frm_Acesso()
         {
@@ -57,13 +57,9 @@ namespace Projeto_Venda_2023
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Acesso));
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbNovo = new System.Windows.Forms.ToolStripButton();
             this.tsbSalvar = new System.Windows.Forms.ToolStripButton();
@@ -81,17 +77,13 @@ namespace Projeto_Venda_2023
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRelatorio = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(372, 54);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(93, 21);
-            this.comboBox1.TabIndex = 36;
             // 
             // label10
             // 
@@ -124,33 +116,6 @@ namespace Projeto_Venda_2023
             this.dataGridView1.Size = new System.Drawing.Size(542, 180);
             this.dataGridView1.TabIndex = 33;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(369, 38);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(21, 13);
-            this.label7.TabIndex = 32;
-            this.label7.Text = "UF";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 31;
-            this.label2.Text = "Nome";
-            // 
-            // txtNome
-            // 
-            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNome.Location = new System.Drawing.Point(12, 54);
-            this.txtNome.MaxLength = 50;
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(344, 20);
-            this.txtNome.TabIndex = 30;
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -172,7 +137,7 @@ namespace Projeto_Venda_2023
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(559, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(554, 25);
             this.toolStrip1.TabIndex = 37;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -311,17 +276,50 @@ namespace Projeto_Venda_2023
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "Código";
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(12, 55);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.TabIndex = 38;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 99);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(135, 20);
+            this.textBox1.TabIndex = 41;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(9, 83);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(42, 13);
+            this.label7.TabIndex = 40;
+            this.label7.Text = "Acesso";
+            // 
             // frm_Acesso
             // 
-            this.ClientSize = new System.Drawing.Size(559, 326);
+            this.ClientSize = new System.Drawing.Size(554, 361);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtNome);
             this.Name = "frm_Acesso";
             this.Text = "Acesso";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -329,6 +327,11 @@ namespace Projeto_Venda_2023
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
 
         }
     }
