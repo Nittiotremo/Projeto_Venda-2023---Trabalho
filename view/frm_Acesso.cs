@@ -89,7 +89,7 @@ namespace Projeto_Venda_2023
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(299, 103);
+            this.label10.Location = new System.Drawing.Point(390, 148);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(97, 13);
             this.label10.TabIndex = 35;
@@ -99,7 +99,7 @@ namespace Projeto_Venda_2023
             // 
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblTotal.Location = new System.Drawing.Point(394, 98);
+            this.lblTotal.Location = new System.Drawing.Point(485, 143);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(57, 23);
             this.lblTotal.TabIndex = 34;
@@ -109,7 +109,7 @@ namespace Projeto_Venda_2023
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 132);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 169);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -279,7 +279,7 @@ namespace Projeto_Venda_2023
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 39);
+            this.label1.Location = new System.Drawing.Point(9, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 39;
@@ -287,7 +287,7 @@ namespace Projeto_Venda_2023
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(12, 55);
+            this.txtId.Location = new System.Drawing.Point(12, 66);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(100, 20);
@@ -295,7 +295,7 @@ namespace Projeto_Venda_2023
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 99);
+            this.textBox1.Location = new System.Drawing.Point(12, 110);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(135, 20);
             this.textBox1.TabIndex = 41;
@@ -303,7 +303,7 @@ namespace Projeto_Venda_2023
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 83);
+            this.label7.Location = new System.Drawing.Point(9, 94);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 40;
