@@ -29,13 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label codoperadoraLabel;
-            System.Windows.Forms.Label nomeoperadoraLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Operadora));
             this.operadoraBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.operadoraDataGridView = new System.Windows.Forms.DataGridView();
-            this.codoperadoraLabel1 = new System.Windows.Forms.Label();
-            this.nomeoperadoraTextBox = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbNovo = new System.Windows.Forms.ToolStripButton();
             this.tsbSalvar = new System.Windows.Forms.ToolStripButton();
@@ -53,57 +48,19 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRelatorio = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            codoperadoraLabel = new System.Windows.Forms.Label();
-            nomeoperadoraLabel = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.operadoraBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.operadoraDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // codoperadoraLabel
-            // 
-            codoperadoraLabel.AutoSize = true;
-            codoperadoraLabel.Location = new System.Drawing.Point(12, 116);
-            codoperadoraLabel.Name = "codoperadoraLabel";
-            codoperadoraLabel.Size = new System.Drawing.Size(76, 13);
-            codoperadoraLabel.TabIndex = 2;
-            codoperadoraLabel.Text = "codoperadora:";
-            // 
-            // nomeoperadoraLabel
-            // 
-            nomeoperadoraLabel.AutoSize = true;
-            nomeoperadoraLabel.Location = new System.Drawing.Point(12, 154);
-            nomeoperadoraLabel.Name = "nomeoperadoraLabel";
-            nomeoperadoraLabel.Size = new System.Drawing.Size(84, 13);
-            nomeoperadoraLabel.TabIndex = 4;
-            nomeoperadoraLabel.Text = "nomeoperadora:";
-            // 
-            // operadoraDataGridView
-            // 
-            this.operadoraDataGridView.AutoGenerateColumns = false;
-            this.operadoraDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.operadoraDataGridView.DataSource = this.operadoraBindingSource;
-            this.operadoraDataGridView.Location = new System.Drawing.Point(12, 269);
-            this.operadoraDataGridView.Name = "operadoraDataGridView";
-            this.operadoraDataGridView.Size = new System.Drawing.Size(300, 220);
-            this.operadoraDataGridView.TabIndex = 1;
-            // 
-            // codoperadoraLabel1
-            // 
-            this.codoperadoraLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.operadoraBindingSource, "codoperadora", true));
-            this.codoperadoraLabel1.Location = new System.Drawing.Point(94, 116);
-            this.codoperadoraLabel1.Name = "codoperadoraLabel1";
-            this.codoperadoraLabel1.Size = new System.Drawing.Size(100, 23);
-            this.codoperadoraLabel1.TabIndex = 3;
-            this.codoperadoraLabel1.Text = "0";
-            // 
-            // nomeoperadoraTextBox
-            // 
-            this.nomeoperadoraTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.operadoraBindingSource, "nomeoperadora", true));
-            this.nomeoperadoraTextBox.Location = new System.Drawing.Point(102, 151);
-            this.nomeoperadoraTextBox.Name = "nomeoperadoraTextBox";
-            this.nomeoperadoraTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nomeoperadoraTextBox.TabIndex = 5;
             // 
             // toolStrip1
             // 
@@ -126,7 +83,7 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(325, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(564, 25);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -185,7 +142,7 @@
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(180, 23);
+            this.txtBuscar.Size = new System.Drawing.Size(180, 25);
             // 
             // btnBuscar
             // 
@@ -193,7 +150,7 @@
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(23, 20);
+            this.btnBuscar.Size = new System.Drawing.Size(23, 22);
             this.btnBuscar.Text = "toolStripButton1";
             this.btnBuscar.ToolTipText = "Buscar Cliente";
             // 
@@ -208,7 +165,7 @@
             this.btnPrimeiro.Image = ((System.Drawing.Image)(resources.GetObject("btnPrimeiro.Image")));
             this.btnPrimeiro.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPrimeiro.Name = "btnPrimeiro";
-            this.btnPrimeiro.Size = new System.Drawing.Size(23, 20);
+            this.btnPrimeiro.Size = new System.Drawing.Size(23, 22);
             this.btnPrimeiro.Text = "toolStripButton1";
             this.btnPrimeiro.ToolTipText = "Primeiro Registro";
             // 
@@ -218,7 +175,7 @@
             this.btnAnterior.Image = ((System.Drawing.Image)(resources.GetObject("btnAnterior.Image")));
             this.btnAnterior.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.Size = new System.Drawing.Size(23, 20);
+            this.btnAnterior.Size = new System.Drawing.Size(23, 22);
             this.btnAnterior.Text = "Registro Anterior";
             // 
             // btnProximo
@@ -227,7 +184,7 @@
             this.btnProximo.Image = ((System.Drawing.Image)(resources.GetObject("btnProximo.Image")));
             this.btnProximo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnProximo.Name = "btnProximo";
-            this.btnProximo.Size = new System.Drawing.Size(23, 20);
+            this.btnProximo.Size = new System.Drawing.Size(23, 22);
             this.btnProximo.Text = "toolStripButton1";
             this.btnProximo.ToolTipText = "Próximo Registro";
             // 
@@ -237,7 +194,7 @@
             this.btnUltimo.Image = ((System.Drawing.Image)(resources.GetObject("btnUltimo.Image")));
             this.btnUltimo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnUltimo.Name = "btnUltimo";
-            this.btnUltimo.Size = new System.Drawing.Size(23, 20);
+            this.btnUltimo.Size = new System.Drawing.Size(23, 22);
             this.btnUltimo.Text = "toolStripButton1";
             this.btnUltimo.ToolTipText = "Último Registro";
             // 
@@ -252,7 +209,7 @@
             this.btnRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorio.Image")));
             this.btnRelatorio.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRelatorio.Name = "btnRelatorio";
-            this.btnRelatorio.Size = new System.Drawing.Size(23, 20);
+            this.btnRelatorio.Size = new System.Drawing.Size(23, 22);
             this.btnRelatorio.Text = "toolStripButton1";
             this.btnRelatorio.ToolTipText = "Gerar Relatório";
             // 
@@ -262,27 +219,114 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(372, 51);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(93, 21);
+            this.comboBox1.TabIndex = 29;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(369, 101);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(97, 13);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Total Registros:";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblTotal.Location = new System.Drawing.Point(464, 96);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(57, 23);
+            this.lblTotal.TabIndex = 27;
+            this.lblTotal.Text = "0";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 128);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(542, 180);
+            this.dataGridView1.TabIndex = 26;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(369, 35);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(21, 13);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "UF";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Nome";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(-117, 113);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(16, 13);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Id";
+            // 
+            // txtNome
+            // 
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNome.Location = new System.Drawing.Point(12, 51);
+            this.txtNome.MaxLength = 50;
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(344, 20);
+            this.txtNome.TabIndex = 22;
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(-117, 129);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.TabIndex = 21;
             // 
             // frm_Operadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 501);
+            this.ClientSize = new System.Drawing.Size(564, 501);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(nomeoperadoraLabel);
-            this.Controls.Add(this.nomeoperadoraTextBox);
-            this.Controls.Add(codoperadoraLabel);
-            this.Controls.Add(this.codoperadoraLabel1);
-            this.Controls.Add(this.operadoraDataGridView);
             this.Name = "frm_Operadora";
             this.Text = "frm_Operadora";
             this.Load += new System.EventHandler(this.frm_Operadora_Load);
             ((System.ComponentModel.ISupportInitialize)(this.operadoraBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.operadoraDataGridView)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,11 +336,8 @@
 
       
         private System.Windows.Forms.BindingSource operadoraBindingSource;
-        private System.Windows.Forms.DataGridView operadoraDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.Label codoperadoraLabel1;
-        private System.Windows.Forms.TextBox nomeoperadoraTextBox;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbNovo;
         private System.Windows.Forms.ToolStripButton tsbSalvar;
@@ -314,5 +355,14 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton btnRelatorio;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox txtId;
     }
 }

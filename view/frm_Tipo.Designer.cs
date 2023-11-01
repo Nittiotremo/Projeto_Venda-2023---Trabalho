@@ -29,13 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label codtipoLabel;
-            System.Windows.Forms.Label nometipoLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Tipo));
             this.tipoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tipoDataGridView = new System.Windows.Forms.DataGridView();
-            this.codtipoLabel1 = new System.Windows.Forms.Label();
-            this.nometipoTextBox = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbNovo = new System.Windows.Forms.ToolStripButton();
             this.tsbSalvar = new System.Windows.Forms.ToolStripButton();
@@ -53,57 +48,19 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRelatorio = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            codtipoLabel = new System.Windows.Forms.Label();
-            nometipoLabel = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tipoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // codtipoLabel
-            // 
-            codtipoLabel.AutoSize = true;
-            codtipoLabel.Location = new System.Drawing.Point(12, 89);
-            codtipoLabel.Name = "codtipoLabel";
-            codtipoLabel.Size = new System.Drawing.Size(45, 13);
-            codtipoLabel.TabIndex = 2;
-            codtipoLabel.Text = "codtipo:";
-            // 
-            // nometipoLabel
-            // 
-            nometipoLabel.AutoSize = true;
-            nometipoLabel.Location = new System.Drawing.Point(12, 126);
-            nometipoLabel.Name = "nometipoLabel";
-            nometipoLabel.Size = new System.Drawing.Size(53, 13);
-            nometipoLabel.TabIndex = 4;
-            nometipoLabel.Text = "nometipo:";
-            // 
-            // tipoDataGridView
-            // 
-            this.tipoDataGridView.AutoGenerateColumns = false;
-            this.tipoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tipoDataGridView.DataSource = this.tipoBindingSource;
-            this.tipoDataGridView.Location = new System.Drawing.Point(12, 173);
-            this.tipoDataGridView.Name = "tipoDataGridView";
-            this.tipoDataGridView.Size = new System.Drawing.Size(300, 220);
-            this.tipoDataGridView.TabIndex = 1;
-            // 
-            // codtipoLabel1
-            // 
-            this.codtipoLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tipoBindingSource, "codtipo", true));
-            this.codtipoLabel1.Location = new System.Drawing.Point(63, 89);
-            this.codtipoLabel1.Name = "codtipoLabel1";
-            this.codtipoLabel1.Size = new System.Drawing.Size(100, 23);
-            this.codtipoLabel1.TabIndex = 3;
-            this.codtipoLabel1.Text = "0";
-            // 
-            // nometipoTextBox
-            // 
-            this.nometipoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tipoBindingSource, "nometipo", true));
-            this.nometipoTextBox.Location = new System.Drawing.Point(71, 123);
-            this.nometipoTextBox.Name = "nometipoTextBox";
-            this.nometipoTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nometipoTextBox.TabIndex = 5;
             // 
             // toolStrip1
             // 
@@ -265,24 +222,111 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(476, 80);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(93, 21);
+            this.comboBox1.TabIndex = 29;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(403, 129);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(97, 13);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Total Registros:";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblTotal.Location = new System.Drawing.Point(498, 124);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(57, 23);
+            this.lblTotal.TabIndex = 27;
+            this.lblTotal.Text = "0";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(13, 159);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(542, 180);
+            this.dataGridView1.TabIndex = 26;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(473, 64);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(21, 13);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "UF";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(116, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Nome";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 64);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(16, 13);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Id";
+            // 
+            // txtNome
+            // 
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNome.Location = new System.Drawing.Point(116, 80);
+            this.txtNome.MaxLength = 50;
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(344, 20);
+            this.txtNome.TabIndex = 22;
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(10, 80);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.TabIndex = 21;
+            // 
             // frm_Tipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(578, 403);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(nometipoLabel);
-            this.Controls.Add(this.nometipoTextBox);
-            this.Controls.Add(codtipoLabel);
-            this.Controls.Add(this.codtipoLabel1);
-            this.Controls.Add(this.tipoDataGridView);
             this.Name = "frm_Tipo";
             this.Text = "frm_Tipo";
             this.Load += new System.EventHandler(this.frm_Tipo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tipoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoDataGridView)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,11 +336,8 @@
 
        
         private System.Windows.Forms.BindingSource tipoBindingSource;
-        private System.Windows.Forms.DataGridView tipoDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.Label codtipoLabel1;
-        private System.Windows.Forms.TextBox nometipoTextBox;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbNovo;
         private System.Windows.Forms.ToolStripButton tsbSalvar;
@@ -314,5 +355,14 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton btnRelatorio;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox txtId;
     }
 }

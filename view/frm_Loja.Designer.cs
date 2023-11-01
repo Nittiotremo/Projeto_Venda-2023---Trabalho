@@ -29,19 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label codlojaLabel;
-            System.Windows.Forms.Label nomelojaLabel;
-            System.Windows.Forms.Label cnpjLabel;
-            System.Windows.Forms.Label nomefantasiaLabel;
-            System.Windows.Forms.Label razaosocialLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Loja));
             this.lojaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lojaDataGridView = new System.Windows.Forms.DataGridView();
-            this.codlojaLabel1 = new System.Windows.Forms.Label();
-            this.nomelojaTextBox = new System.Windows.Forms.TextBox();
-            this.cnpjTextBox = new System.Windows.Forms.TextBox();
-            this.nomefantasiaTextBox = new System.Windows.Forms.TextBox();
-            this.razaosocialTextBox = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbNovo = new System.Windows.Forms.ToolStripButton();
             this.tsbSalvar = new System.Windows.Forms.ToolStripButton();
@@ -59,111 +48,19 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRelatorio = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            codlojaLabel = new System.Windows.Forms.Label();
-            nomelojaLabel = new System.Windows.Forms.Label();
-            cnpjLabel = new System.Windows.Forms.Label();
-            nomefantasiaLabel = new System.Windows.Forms.Label();
-            razaosocialLabel = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.lojaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lojaDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // codlojaLabel
-            // 
-            codlojaLabel.AutoSize = true;
-            codlojaLabel.Location = new System.Drawing.Point(13, 88);
-            codlojaLabel.Name = "codlojaLabel";
-            codlojaLabel.Size = new System.Drawing.Size(44, 13);
-            codlojaLabel.TabIndex = 2;
-            codlojaLabel.Text = "codloja:";
-            // 
-            // nomelojaLabel
-            // 
-            nomelojaLabel.AutoSize = true;
-            nomelojaLabel.Location = new System.Drawing.Point(13, 118);
-            nomelojaLabel.Name = "nomelojaLabel";
-            nomelojaLabel.Size = new System.Drawing.Size(52, 13);
-            nomelojaLabel.TabIndex = 4;
-            nomelojaLabel.Text = "nomeloja:";
-            // 
-            // cnpjLabel
-            // 
-            cnpjLabel.AutoSize = true;
-            cnpjLabel.Location = new System.Drawing.Point(13, 154);
-            cnpjLabel.Name = "cnpjLabel";
-            cnpjLabel.Size = new System.Drawing.Size(30, 13);
-            cnpjLabel.TabIndex = 6;
-            cnpjLabel.Text = "cnpj:";
-            // 
-            // nomefantasiaLabel
-            // 
-            nomefantasiaLabel.AutoSize = true;
-            nomefantasiaLabel.Location = new System.Drawing.Point(13, 191);
-            nomefantasiaLabel.Name = "nomefantasiaLabel";
-            nomefantasiaLabel.Size = new System.Drawing.Size(73, 13);
-            nomefantasiaLabel.TabIndex = 8;
-            nomefantasiaLabel.Text = "nomefantasia:";
-            // 
-            // razaosocialLabel
-            // 
-            razaosocialLabel.AutoSize = true;
-            razaosocialLabel.Location = new System.Drawing.Point(309, 64);
-            razaosocialLabel.Name = "razaosocialLabel";
-            razaosocialLabel.Size = new System.Drawing.Size(63, 13);
-            razaosocialLabel.TabIndex = 10;
-            razaosocialLabel.Text = "razaosocial:";
-            // 
-            // lojaDataGridView
-            // 
-            this.lojaDataGridView.AutoGenerateColumns = false;
-            this.lojaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.lojaDataGridView.DataSource = this.lojaBindingSource;
-            this.lojaDataGridView.Location = new System.Drawing.Point(12, 265);
-            this.lojaDataGridView.Name = "lojaDataGridView";
-            this.lojaDataGridView.Size = new System.Drawing.Size(557, 220);
-            this.lojaDataGridView.TabIndex = 1;
-            // 
-            // codlojaLabel1
-            // 
-            this.codlojaLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lojaBindingSource, "codloja", true));
-            this.codlojaLabel1.Location = new System.Drawing.Point(68, 88);
-            this.codlojaLabel1.Name = "codlojaLabel1";
-            this.codlojaLabel1.Size = new System.Drawing.Size(100, 23);
-            this.codlojaLabel1.TabIndex = 3;
-            this.codlojaLabel1.Text = "0";
-            // 
-            // nomelojaTextBox
-            // 
-            this.nomelojaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lojaBindingSource, "nomeloja", true));
-            this.nomelojaTextBox.Location = new System.Drawing.Point(71, 115);
-            this.nomelojaTextBox.Name = "nomelojaTextBox";
-            this.nomelojaTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nomelojaTextBox.TabIndex = 5;
-            // 
-            // cnpjTextBox
-            // 
-            this.cnpjTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lojaBindingSource, "cnpj", true));
-            this.cnpjTextBox.Location = new System.Drawing.Point(71, 151);
-            this.cnpjTextBox.Name = "cnpjTextBox";
-            this.cnpjTextBox.Size = new System.Drawing.Size(100, 20);
-            this.cnpjTextBox.TabIndex = 7;
-            // 
-            // nomefantasiaTextBox
-            // 
-            this.nomefantasiaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lojaBindingSource, "nomefantasia", true));
-            this.nomefantasiaTextBox.Location = new System.Drawing.Point(92, 184);
-            this.nomefantasiaTextBox.Name = "nomefantasiaTextBox";
-            this.nomefantasiaTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nomefantasiaTextBox.TabIndex = 9;
-            // 
-            // razaosocialTextBox
-            // 
-            this.razaosocialTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lojaBindingSource, "razaosocial", true));
-            this.razaosocialTextBox.Location = new System.Drawing.Point(378, 61);
-            this.razaosocialTextBox.Name = "razaosocialTextBox";
-            this.razaosocialTextBox.Size = new System.Drawing.Size(100, 20);
-            this.razaosocialTextBox.TabIndex = 11;
             // 
             // toolStrip1
             // 
@@ -325,30 +222,111 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(481, 131);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(93, 21);
+            this.comboBox1.TabIndex = 29;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(408, 180);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(97, 13);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Total Registros:";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblTotal.Location = new System.Drawing.Point(503, 175);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(57, 23);
+            this.lblTotal.TabIndex = 27;
+            this.lblTotal.Text = "0";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(18, 210);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(542, 180);
+            this.dataGridView1.TabIndex = 26;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(478, 115);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(21, 13);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "UF";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(121, 115);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Nome";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 115);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(16, 13);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Id";
+            // 
+            // txtNome
+            // 
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNome.Location = new System.Drawing.Point(121, 131);
+            this.txtNome.MaxLength = 50;
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(344, 20);
+            this.txtNome.TabIndex = 22;
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(15, 131);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.TabIndex = 21;
+            // 
             // frm_Loja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(589, 505);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(razaosocialLabel);
-            this.Controls.Add(this.razaosocialTextBox);
-            this.Controls.Add(nomefantasiaLabel);
-            this.Controls.Add(this.nomefantasiaTextBox);
-            this.Controls.Add(cnpjLabel);
-            this.Controls.Add(this.cnpjTextBox);
-            this.Controls.Add(nomelojaLabel);
-            this.Controls.Add(this.nomelojaTextBox);
-            this.Controls.Add(codlojaLabel);
-            this.Controls.Add(this.codlojaLabel1);
-            this.Controls.Add(this.lojaDataGridView);
             this.Name = "frm_Loja";
             this.Text = "frm_Loja";
             this.Load += new System.EventHandler(this.frm_Loja_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lojaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lojaDataGridView)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,17 +336,11 @@
 
         
         private System.Windows.Forms.BindingSource lojaBindingSource;
-        private System.Windows.Forms.DataGridView lojaDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.Label codlojaLabel1;
-        private System.Windows.Forms.TextBox nomelojaTextBox;
-        private System.Windows.Forms.TextBox cnpjTextBox;
-        private System.Windows.Forms.TextBox nomefantasiaTextBox;
-        private System.Windows.Forms.TextBox razaosocialTextBox;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbNovo;
         private System.Windows.Forms.ToolStripButton tsbSalvar;
@@ -386,5 +358,14 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton btnRelatorio;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox txtId;
     }
 }

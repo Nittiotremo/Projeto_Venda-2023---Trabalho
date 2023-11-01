@@ -29,13 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label codbairroLabel;
-            System.Windows.Forms.Label nomebairroLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Bairro));
             this.bairroBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bairroDataGridView = new System.Windows.Forms.DataGridView();
-            this.codbairroLabel1 = new System.Windows.Forms.Label();
-            this.nomebairroTextBox = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbNovo = new System.Windows.Forms.ToolStripButton();
             this.tsbSalvar = new System.Windows.Forms.ToolStripButton();
@@ -53,57 +48,17 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRelatorio = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            codbairroLabel = new System.Windows.Forms.Label();
-            nomebairroLabel = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bairroBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bairroDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // codbairroLabel
-            // 
-            codbairroLabel.AutoSize = true;
-            codbairroLabel.Location = new System.Drawing.Point(12, 83);
-            codbairroLabel.Name = "codbairroLabel";
-            codbairroLabel.Size = new System.Drawing.Size(54, 13);
-            codbairroLabel.TabIndex = 2;
-            codbairroLabel.Text = "codbairro:";
-            // 
-            // nomebairroLabel
-            // 
-            nomebairroLabel.AutoSize = true;
-            nomebairroLabel.Location = new System.Drawing.Point(12, 106);
-            nomebairroLabel.Name = "nomebairroLabel";
-            nomebairroLabel.Size = new System.Drawing.Size(62, 13);
-            nomebairroLabel.TabIndex = 4;
-            nomebairroLabel.Text = "nomebairro:";
-            // 
-            // bairroDataGridView
-            // 
-            this.bairroDataGridView.AutoGenerateColumns = false;
-            this.bairroDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bairroDataGridView.DataSource = this.bairroBindingSource;
-            this.bairroDataGridView.Location = new System.Drawing.Point(12, 152);
-            this.bairroDataGridView.Name = "bairroDataGridView";
-            this.bairroDataGridView.Size = new System.Drawing.Size(300, 220);
-            this.bairroDataGridView.TabIndex = 1;
-            // 
-            // codbairroLabel1
-            // 
-            this.codbairroLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bairroBindingSource, "codbairro", true));
-            this.codbairroLabel1.Location = new System.Drawing.Point(72, 83);
-            this.codbairroLabel1.Name = "codbairroLabel1";
-            this.codbairroLabel1.Size = new System.Drawing.Size(100, 23);
-            this.codbairroLabel1.TabIndex = 3;
-            this.codbairroLabel1.Text = "0";
-            // 
-            // nomebairroTextBox
-            // 
-            this.nomebairroTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bairroBindingSource, "nomebairro", true));
-            this.nomebairroTextBox.Location = new System.Drawing.Point(80, 103);
-            this.nomebairroTextBox.Name = "nomebairroTextBox";
-            this.nomebairroTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nomebairroTextBox.TabIndex = 5;
             // 
             // toolStrip1
             // 
@@ -126,7 +81,7 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(549, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(558, 25);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -265,24 +220,92 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(363, 71);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(93, 21);
+            this.comboBox1.TabIndex = 36;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(290, 120);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(97, 13);
+            this.label10.TabIndex = 35;
+            this.label10.Text = "Total Registros:";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblTotal.Location = new System.Drawing.Point(385, 115);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(57, 23);
+            this.lblTotal.TabIndex = 34;
+            this.lblTotal.Text = "0";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 149);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(542, 180);
+            this.dataGridView1.TabIndex = 33;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(360, 55);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(21, 13);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "UF";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "Nome";
+            // 
+            // txtNome
+            // 
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNome.Location = new System.Drawing.Point(3, 71);
+            this.txtNome.MaxLength = 50;
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(344, 20);
+            this.txtNome.TabIndex = 30;
+            // 
             // frm_Bairro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 384);
+            this.ClientSize = new System.Drawing.Size(558, 384);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(nomebairroLabel);
-            this.Controls.Add(this.nomebairroTextBox);
-            this.Controls.Add(codbairroLabel);
-            this.Controls.Add(this.codbairroLabel1);
-            this.Controls.Add(this.bairroDataGridView);
             this.Name = "frm_Bairro";
             this.Text = "frm_Bairro";
             this.Load += new System.EventHandler(this.frm_Bairro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bairroBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bairroDataGridView)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,11 +315,8 @@
 
        
         private System.Windows.Forms.BindingSource bairroBindingSource;
-        private System.Windows.Forms.DataGridView bairroDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.Label codbairroLabel1;
-        private System.Windows.Forms.TextBox nomebairroTextBox;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbNovo;
         private System.Windows.Forms.ToolStripButton tsbSalvar;
@@ -314,5 +334,12 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton btnRelatorio;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtNome;
     }
 }
