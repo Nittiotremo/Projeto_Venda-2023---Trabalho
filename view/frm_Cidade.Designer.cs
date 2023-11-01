@@ -55,7 +55,7 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboUf = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -304,13 +304,13 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 44;
             // 
-            // comboBox1
+            // comboUf
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(270, 111);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(93, 21);
-            this.comboBox1.TabIndex = 47;
+            this.comboUf.FormattingEnabled = true;
+            this.comboUf.Location = new System.Drawing.Point(270, 111);
+            this.comboUf.Name = "comboUf";
+            this.comboUf.Size = new System.Drawing.Size(93, 21);
+            this.comboUf.TabIndex = 47;
             // 
             // label7
             // 
@@ -324,7 +324,7 @@
             // frm_Cidade
             // 
             this.ClientSize = new System.Drawing.Size(554, 361);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboUf);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
@@ -374,7 +374,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboUf;
         private System.Windows.Forms.Label label7;
     }
 }

@@ -1,4 +1,4 @@
-﻿using Aula_11_08;
+﻿using Projeto_Venda_2023;
 using Projeto_Venda_2023.controller;
 using Projeto_Venda_2023.model;
 using Projeto_Venda_2023.view;
@@ -24,8 +24,8 @@ namespace Projeto_Venda_2023
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmCadastroCidades frc = new frmCadastroCidades();
-            frc.ShowDialog();
+            frm_Cidade frm_cidade = new frm_Cidade();
+            frm_cidade.ShowDialog();
         }
 
         /*public void carregaSexo()
