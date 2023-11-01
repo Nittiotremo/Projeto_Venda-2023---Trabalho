@@ -51,7 +51,9 @@ namespace Projeto_Venda_2023.view
             List<Uf> aux = new List<Uf>();
 
             aux = cs.carregaDados();
-
+            //System.NullReferenceException: 'Referência de objeto não definida
+            //para uma instância de um objeto.'
+            //Retirar esta mensagem até o form carregar
             comboUf.DataSource = aux;
             comboUf.DisplayMember = "sigla";
             comboUf.ValueMember = "coduf";
