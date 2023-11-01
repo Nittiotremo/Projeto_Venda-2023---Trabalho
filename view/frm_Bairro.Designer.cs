@@ -300,7 +300,7 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frm_Bairro";
-            this.Text = "frm_Bairro";
+            this.Text = "Bairro";
             this.Load += new System.EventHandler(this.frm_Bairro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bairroBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);

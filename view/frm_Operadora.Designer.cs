@@ -321,7 +321,7 @@
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frm_Operadora";
-            this.Text = "frm_Operadora";
+            this.Text = "Operadora";
             this.Load += new System.EventHandler(this.frm_Operadora_Load);
             ((System.ComponentModel.ISupportInitialize)(this.operadoraBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);

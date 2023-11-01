@@ -321,7 +321,7 @@
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frm_Rua";
-            this.Text = "frm_Rua";
+            this.Text = "Rua";
             this.Load += new System.EventHandler(this.frm_Rua_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ruaBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);

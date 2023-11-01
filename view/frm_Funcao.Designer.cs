@@ -309,7 +309,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 460);
+            this.ClientSize = new System.Drawing.Size(576, 384);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.lblTotal);
@@ -321,7 +321,7 @@
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frm_Funcao";
-            this.Text = "frm_Funcao";
+            this.Text = "Função";
             this.Load += new System.EventHandler(this.frm_Funcao_Load);
             ((System.ComponentModel.ISupportInitialize)(this.funcaoBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);

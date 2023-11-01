@@ -300,7 +300,7 @@
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frm_Sexo";
-            this.Text = "frm_Sexo";
+            this.Text = "Sexo";
             this.Load += new System.EventHandler(this.frm_Sexo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.sexoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

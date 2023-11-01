@@ -321,7 +321,7 @@
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frm_Marca";
-            this.Text = "frm_Marca";
+            this.Text = "Marca";
             this.Load += new System.EventHandler(this.frm_Marca_Load);
             ((System.ComponentModel.ISupportInitialize)(this.marcaBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);

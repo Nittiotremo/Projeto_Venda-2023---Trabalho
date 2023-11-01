@@ -316,6 +316,7 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtId);
             this.Name = "frm_Cidade";
+            this.Text = "Cidade";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

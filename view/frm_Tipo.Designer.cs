@@ -321,7 +321,7 @@
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frm_Tipo";
-            this.Text = "frm_Tipo";
+            this.Text = "Tipo";
             this.Load += new System.EventHandler(this.frm_Tipo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tipoBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);

@@ -321,7 +321,7 @@
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frm_Loja";
-            this.Text = "frm_Loja";
+            this.Text = "Loja";
             this.Load += new System.EventHandler(this.frm_Loja_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lojaBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);

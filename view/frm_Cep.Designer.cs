@@ -300,7 +300,7 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frm_Cep";
-            this.Text = "frm_Cep";
+            this.Text = "Cep";
             this.Load += new System.EventHandler(this.frm_Cep_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cepBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);

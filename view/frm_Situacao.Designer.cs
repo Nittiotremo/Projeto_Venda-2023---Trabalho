@@ -321,7 +321,7 @@
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frm_Situacao";
-            this.Text = "frm_Situacao";
+            this.Text = "Situação";
             this.Load += new System.EventHandler(this.frm_Situacao_Load);
             ((System.ComponentModel.ISupportInitialize)(this.situacaoBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);

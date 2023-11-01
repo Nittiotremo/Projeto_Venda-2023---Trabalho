@@ -323,6 +323,7 @@ namespace Projeto_Venda_2023
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNome);
             this.Name = "frm_Acesso";
+            this.Text = "Acesso";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
