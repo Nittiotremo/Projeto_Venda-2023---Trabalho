@@ -55,8 +55,8 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboUf = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.comboUf = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -304,14 +304,6 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 44;
             // 
-            // comboUf
-            // 
-            this.comboUf.FormattingEnabled = true;
-            this.comboUf.Location = new System.Drawing.Point(270, 111);
-            this.comboUf.Name = "comboUf";
-            this.comboUf.Size = new System.Drawing.Size(93, 21);
-            this.comboUf.TabIndex = 47;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -320,6 +312,14 @@
             this.label7.Size = new System.Drawing.Size(21, 13);
             this.label7.TabIndex = 46;
             this.label7.Text = "UF";
+            // 
+            // comboUf
+            // 
+            this.comboUf.FormattingEnabled = true;
+            this.comboUf.Location = new System.Drawing.Point(270, 116);
+            this.comboUf.Name = "comboUf";
+            this.comboUf.Size = new System.Drawing.Size(114, 21);
+            this.comboUf.TabIndex = 47;
             // 
             // frm_Cidade
             // 
@@ -338,6 +338,7 @@
             this.Controls.Add(this.txtId);
             this.Name = "frm_Cidade";
             this.Text = "Cidade";
+            this.Load += new System.EventHandler(this.frm_Cidade_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -374,7 +375,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboUf;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboUf;
     }
 }

@@ -152,5 +152,10 @@ namespace Projeto_Venda_2023.view
         {
 
         }
+
+        private void frm_Cidade_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
