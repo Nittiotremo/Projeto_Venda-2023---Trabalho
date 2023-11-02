@@ -50,6 +50,8 @@
     <Compile Include="controller\C_Bairro.cs" />
     <Compile Include="controller\C_Cep.cs" />
     <Compile Include="controller\C_Cidade.cs" />
+    <Compile Include="controller\C_Cliente.cs" />
+    <Compile Include="controller\C_Operadora.cs" />
     <Compile Include="controller\C_Rua.cs" />
     <Compile Include="controller\C_Sexo.cs" />
     <Compile Include="controller\C_Telefone.cs" />
