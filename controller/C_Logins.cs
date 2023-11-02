@@ -1,28 +1,33 @@
-﻿using System;
+﻿using Projeto_Venda_2023.conexao;
+using Projeto_Venda_2023.model;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Projeto_Venda_2023.controller
     {
-        internal class C_ItensTelefoneTrabalho : I_CRUD
+        internal class C_Logins : I_CRUD
         {
             SqlConnection con;
             SqlCommand cmd;
 
-            string sqlInserir = "INSERT INTO itenstelefonetrabalho (codtrabalho_fk, codtelefone_fk) VALUES (@codtrabalho, @codtelefone)";
-            string sqlApagar = "DELETE FROM itenstelefonetrabalho WHERE codtrabalho_fk = @codtrabalho AND codtelefone_fk = @codtelefone";
-            string sqlTodos = "SELECT * FROM itenstelefonetrabalho";
+            string sqlInserir = "INSERT INTO logins (usuario, senha, codfuncionario_fk) " +
+                "VALUES (@usuario, @senha, @codfuncionario)";
+            string sqlApagar = "DELETE FROM logins WHERE codlogin = @codlogin";
+            string sqlTodos = "SELECT * FROM logins";
 
-            public void apagaDados(int codTrabalho, int codTelefone)
+            public void apagaDados(int codLogin)
             {
                 ConectaBanco cb = new ConectaBanco();
                 con = cb.conectaSqlServer();
                 cmd = new SqlCommand(sqlApagar, con);
 
-                cmd.Parameters.AddWithValue("@codtrabalho", codTrabalho);
-                cmd.Parameters.AddWithValue("@codtelefone", codTelefone);
+                cmd.Parameters.AddWithValue("@codlogin", codLogin);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
 
@@ -31,12 +36,12 @@ namespace Projeto_Venda_2023.controller
                     int i = cmd.ExecuteNonQuery();
                     if (i > 0)
                     {
-                        MessageBox.Show("Relação entre trabalho e telefone apagada com sucesso!");
+                        MessageBox.Show("Login apagado com sucesso!\nCódigo do Login: " + codLogin);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao apagar relação entre trabalho e telefone!\nErro: " + ex.ToString());
+                    MessageBox.Show("Erro ao apagar login!\nErro: " + ex.ToString());
                 }
                 finally
                 {
@@ -52,33 +57,33 @@ namespace Projeto_Venda_2023.controller
                 cmd.CommandType = CommandType.Text;
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable relacoes = new DataTable();
+                DataTable logins = new DataTable();
 
                 con.Open();
 
                 try
                 {
-                    da.Fill(relacoes);
+                    da.Fill(logins);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao buscar relações entre trabalho e telefone!\nErro: " + ex.ToString());
+                    MessageBox.Show("Erro ao buscar logins!\nErro: " + ex.ToString());
                 }
                 finally
                 {
                     con.Close();
                 }
 
-                return relacoes;
+                return logins;
             }
 
             public void insereDados(object obj)
             {
-                ItensTelefoneTrabalho relacao = obj as ItensTelefoneTrabalho;
+                Logins login = obj as Logins;
 
-                if (relacao == null)
+                if (login == null)
                 {
-                    MessageBox.Show("Objeto de relação trabalho-telefone inválido.");
+                    MessageBox.Show("Objeto Logins inválido.");
                     return;
                 }
 
@@ -86,8 +91,9 @@ namespace Projeto_Venda_2023.controller
                 con = cb.conectaSqlServer();
                 cmd = new SqlCommand(sqlInserir, con);
 
-                cmd.Parameters.AddWithValue("@codtrabalho", relacao.Trabalho.Codtrabalho);
-                cmd.Parameters.AddWithValue("@codtelefone", relacao.Telefone.Codtelefone);
+                cmd.Parameters.AddWithValue("@usuario", login.Usuario);
+                cmd.Parameters.AddWithValue("@senha", login.Senha);
+                cmd.Parameters.AddWithValue("@codfuncionario", login.Funcionario.Codfuncionario);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
 
@@ -96,7 +102,7 @@ namespace Projeto_Venda_2023.controller
                     int i = cmd.ExecuteNonQuery();
                     if (i > 0)
                     {
-                        MessageBox.Show("Relação entre trabalho e telefone incluída com sucesso");
+                        MessageBox.Show("Login incluído com sucesso");
                     }
                 }
                 catch (Exception ex)
@@ -110,6 +116,3 @@ namespace Projeto_Venda_2023.controller
             }
         }
     }
-
-}
-}

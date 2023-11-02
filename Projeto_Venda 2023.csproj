@@ -47,16 +47,38 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="conexao\ConectaBanco.cs" />
+    <Compile Include="controller\C_Acesso.cs" />
     <Compile Include="controller\C_Bairro.cs" />
     <Compile Include="controller\C_Cep.cs" />
     <Compile Include="controller\C_Cidade.cs" />
     <Compile Include="controller\C_Cliente.cs" />
+    <Compile Include="controller\C_CompraProduto.cs" />
+    <Compile Include="controller\C_ControleLogSistema.cs" />
+    <Compile Include="controller\C_Fornecedor.cs" />
+    <Compile Include="controller\C_Funcao.cs" />
+    <Compile Include="controller\C_Funcionario.cs" />
+    <Compile Include="controller\C_Imagens.cs" />
+    <Compile Include="controller\C_ItensAcessoLogin.cs" />
+    <Compile Include="controller\C_ItensCompraProduto.cs" />
+    <Compile Include="controller\C_ItensTelefoneFornecedor.cs" />
+    <Compile Include="controller\C_ItensTelefoneFuncionario.cs" />
+    <Compile Include="controller\C_ItensTelefoneLoja.cs" />
+    <Compile Include="controller\C_ItensVendaProduto.cs" />
+    <Compile Include="controller\C_Logins.cs" />
+    <Compile Include="controller\C_Loja.cs" />
+    <Compile Include="controller\C_Marca.cs" />
     <Compile Include="controller\C_Operadora.cs" />
+    <Compile Include="controller\C_ParcelaCompra.cs" />
+    <Compile Include="controller\C_ParcelaVenda.cs" />
+    <Compile Include="controller\C_Produto.cs" />
     <Compile Include="controller\C_Rua.cs" />
     <Compile Include="controller\C_Sexo.cs" />
+    <Compile Include="controller\C_Situacao.cs" />
     <Compile Include="controller\C_Telefone.cs" />
+    <Compile Include="controller\C_Tipo.cs" />
     <Compile Include="controller\C_Trabalho.cs" />
     <Compile Include="controller\C_Uf.cs" />
+    <Compile Include="controller\C_VendaProduto.cs" />
     <Compile Include="controller\I_CRUD.cs" />
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>

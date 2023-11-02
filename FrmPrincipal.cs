@@ -46,6 +46,10 @@ namespace Projeto_Venda_2023
 
         }
 
-        
+        private void acessoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_Acesso frm_Acesso = new frm_Acesso();
+            frm_Acesso.ShowDialog();
+        }
     }
 }

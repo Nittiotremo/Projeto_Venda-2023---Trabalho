@@ -1,28 +1,34 @@
-﻿using System;
+﻿using Projeto_Venda_2023.conexao;
+using Projeto_Venda_2023.model;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Projeto_Venda_2023.controller
     {
-        internal class C_ItensTelefoneTrabalho : I_CRUD
+        internal class C_ItensCompraProduto : I_CRUD
         {
             SqlConnection con;
             SqlCommand cmd;
 
-            string sqlInserir = "INSERT INTO itenstelefonetrabalho (codtrabalho_fk, codtelefone_fk) VALUES (@codtrabalho, @codtelefone)";
-            string sqlApagar = "DELETE FROM itenstelefonetrabalho WHERE codtrabalho_fk = @codtrabalho AND codtelefone_fk = @codtelefone";
-            string sqlTodos = "SELECT * FROM itenstelefonetrabalho";
+            string sqlInserir = "INSERT INTO itenscompraproduto (codcompra_fk, codproduto_fk, quantidade, valor) " +
+                "VALUES (@codcompra, @codproduto, @quantidade, @valor)";
+            string sqlApagar = "DELETE FROM itenscompraproduto WHERE codcompra_fk = @codcompra AND codproduto_fk = @codproduto";
+            string sqlTodos = "SELECT * FROM itenscompraproduto";
 
-            public void apagaDados(int codTrabalho, int codTelefone)
+            public void apagaDados(int codCompra, int codProduto)
             {
                 ConectaBanco cb = new ConectaBanco();
                 con = cb.conectaSqlServer();
                 cmd = new SqlCommand(sqlApagar, con);
 
-                cmd.Parameters.AddWithValue("@codtrabalho", codTrabalho);
-                cmd.Parameters.AddWithValue("@codtelefone", codTelefone);
+                cmd.Parameters.AddWithValue("@codcompra", codCompra);
+                cmd.Parameters.AddWithValue("@codproduto", codProduto);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
 
@@ -31,12 +37,12 @@ namespace Projeto_Venda_2023.controller
                     int i = cmd.ExecuteNonQuery();
                     if (i > 0)
                     {
-                        MessageBox.Show("Relação entre trabalho e telefone apagada com sucesso!");
+                        MessageBox.Show("Itens da compra de produto apagados com sucesso!\nCód. Compra: " + codCompra + ", Cód. Produto: " + codProduto);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao apagar relação entre trabalho e telefone!\nErro: " + ex.ToString());
+                    MessageBox.Show("Erro ao apagar os itens da compra de produto!\nErro: " + ex.ToString());
                 }
                 finally
                 {
@@ -44,7 +50,12 @@ namespace Projeto_Venda_2023.controller
                 }
             }
 
-            public DataTable buscarTodos()
+        public void apagaDados(int cod)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DataTable buscarTodos()
             {
                 ConectaBanco cb = new ConectaBanco();
                 con = cb.conectaSqlServer();
@@ -52,33 +63,33 @@ namespace Projeto_Venda_2023.controller
                 cmd.CommandType = CommandType.Text;
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable relacoes = new DataTable();
+                DataTable itensCompraProduto = new DataTable();
 
                 con.Open();
 
                 try
                 {
-                    da.Fill(relacoes);
+                    da.Fill(itensCompraProduto);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao buscar relações entre trabalho e telefone!\nErro: " + ex.ToString());
+                    MessageBox.Show("Erro ao buscar itens da compra de produto!\nErro: " + ex.ToString());
                 }
                 finally
                 {
                     con.Close();
                 }
 
-                return relacoes;
+                return itensCompraProduto;
             }
 
             public void insereDados(object obj)
             {
-                ItensTelefoneTrabalho relacao = obj as ItensTelefoneTrabalho;
+                ItensCompraProduto itensCompraProduto = obj as ItensCompraProduto;
 
-                if (relacao == null)
+                if (itensCompraProduto == null)
                 {
-                    MessageBox.Show("Objeto de relação trabalho-telefone inválido.");
+                    MessageBox.Show("Objeto ItensCompraProduto inválido.");
                     return;
                 }
 
@@ -86,8 +97,10 @@ namespace Projeto_Venda_2023.controller
                 con = cb.conectaSqlServer();
                 cmd = new SqlCommand(sqlInserir, con);
 
-                cmd.Parameters.AddWithValue("@codtrabalho", relacao.Trabalho.Codtrabalho);
-                cmd.Parameters.AddWithValue("@codtelefone", relacao.Telefone.Codtelefone);
+                cmd.Parameters.AddWithValue("@CodCompra", itensCompraProduto.CompraProduto.Codcompra);
+                cmd.Parameters.AddWithValue("@CodProduto", itensCompraProduto.Produto.Codproduto);
+                cmd.Parameters.AddWithValue("@Quantidade", itensCompraProduto.Quantidade);
+                cmd.Parameters.AddWithValue("@Valor", itensCompraProduto.Valor);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
 
@@ -96,7 +109,7 @@ namespace Projeto_Venda_2023.controller
                     int i = cmd.ExecuteNonQuery();
                     if (i > 0)
                     {
-                        MessageBox.Show("Relação entre trabalho e telefone incluída com sucesso");
+                        MessageBox.Show("Itens da compra de produto incluídos com sucesso");
                     }
                 }
                 catch (Exception ex)
@@ -110,6 +123,3 @@ namespace Projeto_Venda_2023.controller
             }
         }
     }
-
-}
-}
