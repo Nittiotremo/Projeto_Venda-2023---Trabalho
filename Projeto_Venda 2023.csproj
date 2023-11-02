@@ -218,7 +218,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="view\frm_Acesso.resx" />
+    <EmbeddedResource Include="view\frm_Acesso.resx">
+      <DependentUpon>frm_Acesso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\frm_Bairro.resx">
       <DependentUpon>frm_Bairro.cs</DependentUpon>
     </EmbeddedResource>

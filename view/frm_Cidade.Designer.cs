@@ -74,7 +74,7 @@
             // lblTotal
             // 
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(98)))), ((int)(((byte)(54)))));
             this.lblTotal.Location = new System.Drawing.Point(485, 114);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(57, 23);
@@ -323,6 +323,7 @@
             // 
             // frm_Cidade
             // 
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(83)))), ((int)(((byte)(139)))));
             this.ClientSize = new System.Drawing.Size(554, 361);
             this.Controls.Add(this.comboUf);
             this.Controls.Add(this.label7);
