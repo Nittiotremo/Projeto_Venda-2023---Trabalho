@@ -122,16 +122,12 @@
     <Compile Include="model\VendaProduto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="view\frmCadastroCidades.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\frmCadastroCidades.designer.cs">
-      <DependentUpon>frmCadastroCidades.cs</DependentUpon>
-    </Compile>
     <Compile Include="view\frm_Acesso.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\frm_Acesso.Designer.cs" />
+    <Compile Include="view\frm_Acesso.Designer.cs">
+      <DependentUpon>frm_Acesso.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\frm_Bairro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,9 +218,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="view\frmCadastroCidades.resx">
-      <DependentUpon>frmCadastroCidades.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="view\frm_Acesso.resx" />
     <EmbeddedResource Include="view\frm_Bairro.resx">
       <DependentUpon>frm_Bairro.cs</DependentUpon>

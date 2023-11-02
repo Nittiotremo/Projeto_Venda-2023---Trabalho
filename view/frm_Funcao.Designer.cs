@@ -48,11 +48,9 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRelatorio = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -83,7 +81,7 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(576, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(554, 25);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -222,19 +220,11 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(475, 109);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(93, 21);
-            this.comboBox1.TabIndex = 29;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(402, 158);
+            this.label10.Location = new System.Drawing.Point(403, 154);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(97, 13);
             this.label10.TabIndex = 28;
@@ -244,7 +234,7 @@
             // 
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblTotal.Location = new System.Drawing.Point(497, 153);
+            this.lblTotal.Location = new System.Drawing.Point(497, 148);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(57, 23);
             this.lblTotal.TabIndex = 27;
@@ -254,52 +244,43 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 188);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 174);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(542, 180);
             this.dataGridView1.TabIndex = 26;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(472, 93);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(21, 13);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "UF";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(115, 93);
+            this.label2.Location = new System.Drawing.Point(9, 112);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 24;
-            this.label2.Text = "Nome";
+            this.label2.Text = "Função";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 93);
+            this.label1.Location = new System.Drawing.Point(9, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 13);
+            this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 23;
-            this.label1.Text = "Id";
+            this.label1.Text = "Código";
             // 
             // txtNome
             // 
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNome.Location = new System.Drawing.Point(115, 109);
+            this.txtNome.Location = new System.Drawing.Point(9, 128);
             this.txtNome.MaxLength = 50;
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(344, 20);
+            this.txtNome.Size = new System.Drawing.Size(155, 20);
             this.txtNome.TabIndex = 22;
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(9, 109);
+            this.txtId.Location = new System.Drawing.Point(9, 76);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(100, 20);
@@ -309,12 +290,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 384);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(554, 361);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNome);
@@ -355,11 +334,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton btnRelatorio;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNome;

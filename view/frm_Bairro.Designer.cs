@@ -48,13 +48,13 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRelatorio = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bairroBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -81,7 +81,7 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(558, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(554, 25);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -220,14 +220,6 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(363, 71);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(93, 21);
-            this.comboBox1.TabIndex = 36;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -242,7 +234,7 @@
             // 
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblTotal.Location = new System.Drawing.Point(385, 115);
+            this.lblTotal.Location = new System.Drawing.Point(393, 114);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(57, 23);
             this.lblTotal.TabIndex = 34;
@@ -259,45 +251,52 @@
             this.dataGridView1.Size = new System.Drawing.Size(542, 180);
             this.dataGridView1.TabIndex = 33;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(3, 102);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(171, 20);
+            this.textBox1.TabIndex = 45;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(360, 55);
+            this.label7.Location = new System.Drawing.Point(0, 86);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(21, 13);
-            this.label7.TabIndex = 32;
-            this.label7.Text = "UF";
+            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.TabIndex = 44;
+            this.label7.Text = "Bairro";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // label2
+            // label1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 31;
-            this.label2.Text = "Nome";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(0, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "Código";
             // 
-            // txtNome
+            // txtId
             // 
-            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNome.Location = new System.Drawing.Point(3, 71);
-            this.txtNome.MaxLength = 50;
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(344, 20);
-            this.txtNome.TabIndex = 30;
+            this.txtId.Location = new System.Drawing.Point(3, 58);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.TabIndex = 42;
             // 
             // frm_Bairro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(558, 384);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(554, 361);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frm_Bairro";
             this.Text = "Bairro";
@@ -334,12 +333,12 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton btnRelatorio;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtId;
     }
 }

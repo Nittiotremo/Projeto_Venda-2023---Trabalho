@@ -31,5 +31,10 @@ namespace Projeto_Venda_2023.view
           
 
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
