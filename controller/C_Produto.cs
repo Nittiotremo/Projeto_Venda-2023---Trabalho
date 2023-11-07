@@ -77,7 +77,12 @@ namespace Projeto_Venda_2023.controller
                 return produtos;
             }
 
-            public void insereDados(object obj)
+        public void editarDados(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void insereDados(object obj)
             {
                 Produto produto = obj as Produto;
 

@@ -76,7 +76,12 @@ namespace Projeto_Venda_2023.controller
                 return funcoes;
             }
 
-            public void insereDados(object obj)
+        public void editarDados(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void insereDados(object obj)
             {
                 Funcao funcao = obj as Funcao;
 

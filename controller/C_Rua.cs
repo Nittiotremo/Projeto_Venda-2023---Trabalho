@@ -94,6 +94,11 @@ namespace Projeto_Venda_2023.controller
             return lista_rua;
         }
 
+        public void editarDados(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
         public void insereDados(object obj)
         {
             Rua rua = new Rua();

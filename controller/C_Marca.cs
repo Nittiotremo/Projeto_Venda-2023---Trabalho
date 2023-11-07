@@ -76,7 +76,12 @@ namespace Projeto_Venda_2023.controller
                 return marcas;
             }
 
-            public void insereDados(object obj)
+        public void editarDados(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void insereDados(object obj)
             {
                 Marca marca = obj as Marca;
 

@@ -86,6 +86,11 @@
     <Compile Include="FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="loja_unifunec_2023DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>loja_unifunec_2023DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="model\Acesso.cs" />
     <Compile Include="model\Bairro.cs" />
     <Compile Include="model\Cep.cs" />
@@ -260,6 +265,17 @@
     <EmbeddedResource Include="view\frm_Uf.resx">
       <DependentUpon>frm_Uf.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="loja_unifunec_2023DataSet1.xsc">
+      <DependentUpon>loja_unifunec_2023DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="loja_unifunec_2023DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>loja_unifunec_2023DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="loja_unifunec_2023DataSet1.xss">
+      <DependentUpon>loja_unifunec_2023DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

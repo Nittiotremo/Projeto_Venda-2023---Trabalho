@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Acesso));
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textAcesso = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
@@ -57,13 +57,14 @@
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textAcesso
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(3, 118);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(171, 20);
-            this.textBox1.TabIndex = 53;
+            this.textAcesso.BackColor = System.Drawing.Color.White;
+            this.textAcesso.Enabled = false;
+            this.textAcesso.Location = new System.Drawing.Point(3, 118);
+            this.textAcesso.Name = "textAcesso";
+            this.textAcesso.Size = new System.Drawing.Size(171, 20);
+            this.textAcesso.TabIndex = 53;
             // 
             // label7
             // 
@@ -85,6 +86,7 @@
             // 
             // txtId
             // 
+            this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(3, 74);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
@@ -122,6 +124,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(542, 180);
             this.dataGridView1.TabIndex = 47;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // toolStrip1
             // 
@@ -158,6 +161,7 @@
             this.tsbNovo.Size = new System.Drawing.Size(23, 22);
             this.tsbNovo.Text = "toolStripButton1";
             this.tsbNovo.ToolTipText = "Adicionar Novo Cliente";
+            this.tsbNovo.Click += new System.EventHandler(this.tsbNovo_Click);
             // 
             // tsbSalvar
             // 
@@ -168,6 +172,7 @@
             this.tsbSalvar.Size = new System.Drawing.Size(23, 22);
             this.tsbSalvar.Text = "toolStripButton1";
             this.tsbSalvar.ToolTipText = "Salvar Cliente";
+            this.tsbSalvar.Click += new System.EventHandler(this.tsbSalvar_Click);
             // 
             // tsbCancelar
             // 
@@ -215,6 +220,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(23, 22);
             this.btnBuscar.Text = "toolStripButton1";
             this.btnBuscar.ToolTipText = "Buscar Cliente";
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // toolStripSeparator2
             // 
@@ -290,7 +296,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(554, 361);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textAcesso);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtId);
@@ -311,7 +317,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textAcesso;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtId;

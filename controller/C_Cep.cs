@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Projeto_Venda_2023.controller
 {
-    internal class C_Cep
+    internal class C_Cep : I_CRUD
     {
         SqlConnection con;
         SqlCommand cmd;
@@ -92,6 +92,11 @@ namespace Projeto_Venda_2023.controller
             finally { con.Close(); }
 
             return lista_cep;
+        }
+
+        public void editarDados(object obj)
+        {
+            throw new NotImplementedException();
         }
 
         public void insereDados(object obj)

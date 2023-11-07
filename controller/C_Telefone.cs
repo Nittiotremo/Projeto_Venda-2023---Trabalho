@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Projeto_Venda_2023.controller
 {
-    internal class C_Telefone
+    internal class C_Telefone : I_CRUD
     {
         SqlConnection con;
         SqlCommand cmd;
@@ -111,6 +111,11 @@ namespace Projeto_Venda_2023.controller
             {
                 con.Close();
             }
+        }
+
+        public void editarDados(object obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }

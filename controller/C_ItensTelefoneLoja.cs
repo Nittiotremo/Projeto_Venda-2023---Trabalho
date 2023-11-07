@@ -82,7 +82,12 @@ namespace Projeto_Venda_2023.controller
                 return itensTelefoneLoja;
             }
 
-            public void insereDados(object obj)
+        public void editarDados(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void insereDados(object obj)
             {
                 ItensTelefoneLoja itensTelefoneLoja = obj as ItensTelefoneLoja;
 

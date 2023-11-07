@@ -82,7 +82,12 @@ namespace Projeto_Venda_2023.controller
                 return itensAcessoLogin;
             }
 
-            public void insereDados(object obj)
+        public void editarDados(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void insereDados(object obj)
             {
                 ItensAcessoLogin itensAcessoLogin = obj as ItensAcessoLogin;
 

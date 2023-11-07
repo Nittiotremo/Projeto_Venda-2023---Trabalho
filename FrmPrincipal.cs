@@ -107,6 +107,16 @@ namespace Projeto_Venda_2023
             frm_Trabalho.ShowDialog();
         }
 
-        
+        private void ufToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_Uf uf = new frm_Uf();
+            uf.ShowDialog();
+        }
+
+        private void sexoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_Sexo frm_Sexo = new frm_Sexo();
+            frm_Sexo.ShowDialog();
+        }
     }
 }
