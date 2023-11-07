@@ -61,7 +61,8 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(393, 149);
+            this.label10.Location = new System.Drawing.Point(524, 184);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(97, 13);
             this.label10.TabIndex = 37;
@@ -71,9 +72,10 @@
             // 
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(98)))), ((int)(((byte)(54)))));
-            this.lblTotal.Location = new System.Drawing.Point(485, 143);
+            this.lblTotal.Location = new System.Drawing.Point(646, 176);
+            this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(57, 23);
+            this.lblTotal.Size = new System.Drawing.Size(76, 29);
             this.lblTotal.TabIndex = 36;
             this.lblTotal.Text = "0";
             this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -81,46 +83,52 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 169);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 208);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(542, 180);
+            this.dataGridView1.Size = new System.Drawing.Size(722, 221);
             this.dataGridView1.TabIndex = 35;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 107);
+            this.label2.Location = new System.Drawing.Point(12, 131);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(18, 13);
+            this.label2.Size = new System.Drawing.Size(20, 16);
             this.label2.TabIndex = 33;
             this.label2.Text = "Uf";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 66);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(12, 81);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(52, 16);
             this.label1.TabIndex = 32;
             this.label1.Text = "Código";
             // 
             // txtNome
             // 
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNome.Location = new System.Drawing.Point(9, 123);
+            this.txtNome.Location = new System.Drawing.Point(12, 152);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNome.MaxLength = 50;
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(100, 20);
+            this.txtNome.Size = new System.Drawing.Size(132, 22);
             this.txtNome.TabIndex = 31;
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(9, 82);
+            this.txtId.Location = new System.Drawing.Point(12, 101);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.Size = new System.Drawing.Size(132, 22);
             this.txtId.TabIndex = 30;
             // 
             // toolStrip1
@@ -144,7 +152,8 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(554, 25);
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.toolStrip1.Size = new System.Drawing.Size(738, 25);
             this.toolStrip1.TabIndex = 39;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -203,7 +212,7 @@
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(180, 25);
+            this.txtBuscar.Size = new System.Drawing.Size(238, 25);
             // 
             // btnBuscar
             // 
@@ -285,10 +294,10 @@
             // 
             // frm_Uf
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(83)))), ((int)(((byte)(139)))));
-            this.ClientSize = new System.Drawing.Size(554, 361);
+            this.BackColor = System.Drawing.Color.DarkCyan;
+            this.ClientSize = new System.Drawing.Size(738, 445);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.lblTotal);
@@ -297,6 +306,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtId);
+            this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frm_Uf";
             this.Text = "Uf";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
