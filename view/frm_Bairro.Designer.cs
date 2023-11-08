@@ -93,7 +93,7 @@
             this.tsbNovo.Name = "tsbNovo";
             this.tsbNovo.Size = new System.Drawing.Size(23, 22);
             this.tsbNovo.Text = "toolStripButton1";
-            this.tsbNovo.ToolTipText = "Adicionar Novo Cliente";
+            this.tsbNovo.ToolTipText = "Adicionar Novo Bairro";
             this.tsbNovo.Click += new System.EventHandler(this.tsbNovo_Click);
             // 
             // tsbSalvar
@@ -254,6 +254,7 @@
             // 
             // textBairro
             // 
+            this.textBairro.Enabled = false;
             this.textBairro.Location = new System.Drawing.Point(3, 102);
             this.textBairro.Name = "textBairro";
             this.textBairro.Size = new System.Drawing.Size(171, 20);
@@ -280,6 +281,7 @@
             // 
             // txtId
             // 
+            this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(3, 58);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
