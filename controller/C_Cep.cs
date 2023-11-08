@@ -16,19 +16,19 @@ namespace Projeto_Venda_2023.controller
         SqlConnection con;
         SqlCommand cmd;
 
-        string sqlInsere = "insert into cep (nomecep) values (@Nome)";
-       // string sqlEditar = "update cep set nomecep = @Nome where id = @Nome";
-        string sqlApagar = "delete from cep where codcep = @Id";
-        string sqlTodos = "select * from cep";
-        //string sqlBuscarId = "select * from cep where codcep = @Id";
-        public void apagaDados(int cod)
+        string sqlInserir = "INSERT INTO cep (nomecep) VALUES (@nomecep)";
+        string sqlApagar = "DELETE FROM cep WHERE codcep = @codcep";
+        string sqlTodos = "SELECT * FROM cep";
+        string sqlEditar = "update cep set nomecep = @pnome where codcep = @pcodcep";
+        string sqlBuscaNome = "select * from cep where nomecep like @pnome";
+
+        public void apagaDados(int codCep)
         {
             ConectaBanco cb = new ConectaBanco();
             con = cb.conectaSqlServer();
             cmd = new SqlCommand(sqlApagar, con);
 
-            //Passando parâmetros para a sentença SQL
-            cmd.Parameters.AddWithValue("@Id", cod);
+            cmd.Parameters.AddWithValue("@codcep", codCep);
             cmd.CommandType = CommandType.Text;
             con.Open();
 
@@ -37,13 +37,12 @@ namespace Projeto_Venda_2023.controller
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
                 {
-                    MessageBox.Show("Cep deletada com Sucesso!!!\n" +
-                        "Código: " + cod);
+                    MessageBox.Show("Cep apagado com sucesso!\nCódigo de Cep: " + codCep);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao Apagar!\nErro:" + ex.ToString());
+                MessageBox.Show("Erro ao apagar cep!\nErro: " + ex.ToString());
             }
             finally
             {
@@ -53,70 +52,123 @@ namespace Projeto_Venda_2023.controller
 
         public DataTable buscarTodos()
         {
-            throw new NotImplementedException();
-        }
-
-
-        //List para carregar ComboBox da aplicação.
-        public List<Cep> carregaDados()
-        {
-            List<Cep> lista_cep = new List<Cep>();
-
             ConectaBanco cb = new ConectaBanco();
             con = cb.conectaSqlServer();
             cmd = new SqlCommand(sqlTodos, con);
-
             cmd.CommandType = CommandType.Text;
 
-            SqlDataReader tabCep; //Representa uma Tabela Virtual para a leitura de dados
-            con.Open();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable ceps = new DataTable();
 
+            con.Open();
 
             try
             {
-                tabCep = cmd.ExecuteReader();
-                while (tabCep.Read())
-                {
-                    Cep aux = new Cep();
-
-                    aux.Codcep = Int32.Parse(tabCep["codcep"].ToString());
-                    aux.Numerocep = tabCep["nomecep"].ToString();
-
-                    lista_cep.Add(aux);
-                }
+                da.Fill(ceps);
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao buscar ceps!\nErro: " + ex.ToString());
             }
-            finally { con.Close(); }
+            finally
+            {
+                con.Close();
+            }
 
-            return lista_cep;
+            return ceps;
         }
 
-        public void editarDados(object obj)
+        public DataTable buscarNome(String valor)
         {
-            throw new NotImplementedException();
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlBuscaNome, con);
+
+            cmd.Parameters.AddWithValue("@pnome", valor + "%");
+            cmd.CommandType = CommandType.Text;
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable ceps = new DataTable();
+
+            con.Open();
+
+            try
+            {
+                da.Fill(ceps);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar ceps!\nErro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return ceps;
         }
 
         public void insereDados(object obj)
         {
-            Cep cep = new Cep();
-            cep = (Cep)obj;
+            Cep cep = obj as Cep;
+
+            if (cep == null)
+            {
+                MessageBox.Show("Objeto Cep inválido.");
+                return;
+            }
 
             ConectaBanco cb = new ConectaBanco();
             con = cb.conectaSqlServer();
-            cmd = new SqlCommand(sqlInsere, con);
+            cmd = new SqlCommand(sqlInserir, con);
 
-            cmd.Parameters.AddWithValue("@Nome", cep.Numerocep);
+            cmd.Parameters.AddWithValue("@nomecep", cep.Numerocep);
             cmd.CommandType = CommandType.Text;
             con.Open();
+
             try
             {
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
                 {
-                    MessageBox.Show("Registro incluído com sucesso");
+                    MessageBox.Show("Cep incluído com sucesso");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void editarDados(object obj)
+        {
+            Cep cep = obj as Cep;
+
+            if (cep == null)
+            {
+                MessageBox.Show("Objeto Cep inválido.");
+                return;
+            }
+
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlEditar, con);
+
+            cmd.Parameters.AddWithValue("@pnome", cep.Numerocep);
+            cmd.Parameters.AddWithValue("@pcodcep", cep.Codcep);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+
+            try
+            {
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    MessageBox.Show("Cep alterado com sucesso");
                 }
             }
             catch (Exception ex)

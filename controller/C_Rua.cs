@@ -16,19 +16,19 @@ namespace Projeto_Venda_2023.controller
         SqlConnection con;
         SqlCommand cmd;
 
-        string sqlInsere = "insert into rua (nomerua) values (@Nome)";
-        //string sqlEditar = "update rua set nomerua = @Nome where id = @Nome";
-        string sqlApagar = "delete from rua where codrua = @Id";
-        string sqlTodos = "select * from rua";
-       // string sqlBuscarId = "select * from rua where codrua = @Id";
-        public void apagaDados(int cod)
+        string sqlInserir = "INSERT INTO rua (nomerua) VALUES (@nomerua)";
+        string sqlApagar = "DELETE FROM rua WHERE codrua = @codrua";
+        string sqlTodos = "SELECT * FROM rua";
+        string sqlEditar = "update rua set nomerua = @pnome where codrua = @pcodrua";
+        string sqlBuscaNome = "select * from rua where nomerua like @pnome";
+
+        public void apagaDados(int codRua)
         {
             ConectaBanco cb = new ConectaBanco();
             con = cb.conectaSqlServer();
             cmd = new SqlCommand(sqlApagar, con);
 
-            //Passando parâmetros para a sentença SQL
-            cmd.Parameters.AddWithValue("@Id", cod);
+            cmd.Parameters.AddWithValue("@codrua", codRua);
             cmd.CommandType = CommandType.Text;
             con.Open();
 
@@ -37,13 +37,12 @@ namespace Projeto_Venda_2023.controller
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
                 {
-                    MessageBox.Show("Rua deletada com Sucesso!!!\n" +
-                        "Código: " + cod);
+                    MessageBox.Show("Rua apagado com sucesso!\nCódigo de Rua: " + codRua);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao Apagar!\nErro:" + ex.ToString());
+                MessageBox.Show("Erro ao apagar rua!\nErro: " + ex.ToString());
             }
             finally
             {
@@ -53,70 +52,123 @@ namespace Projeto_Venda_2023.controller
 
         public DataTable buscarTodos()
         {
-            throw new NotImplementedException();
-        }
-
-
-        //List para carregar ComboBox da aplicação.
-        public List<Rua> carregaDados()
-        {
-            List<Rua> lista_rua = new List<Rua>();
-
             ConectaBanco cb = new ConectaBanco();
             con = cb.conectaSqlServer();
             cmd = new SqlCommand(sqlTodos, con);
-
             cmd.CommandType = CommandType.Text;
 
-            SqlDataReader tabRua; //Representa uma Tabela Virtual para a leitura de dados
-            con.Open();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable ruas = new DataTable();
 
+            con.Open();
 
             try
             {
-                tabRua = cmd.ExecuteReader();
-                while (tabRua.Read())
-                {
-                    Rua aux = new Rua();
-
-                    aux.Codrua = Int32.Parse(tabRua["codrua"].ToString());
-                    aux.Nomerua = tabRua["nomerua"].ToString();
-
-                    lista_rua.Add(aux);
-                }
+                da.Fill(ruas);
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao buscar ruas!\nErro: " + ex.ToString());
             }
-            finally { con.Close(); }
+            finally
+            {
+                con.Close();
+            }
 
-            return lista_rua;
+            return ruas;
         }
 
-        public void editarDados(object obj)
+        public DataTable buscarNome(String valor)
         {
-            throw new NotImplementedException();
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlBuscaNome, con);
+
+            cmd.Parameters.AddWithValue("@pnome", valor + "%");
+            cmd.CommandType = CommandType.Text;
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable ruas = new DataTable();
+
+            con.Open();
+
+            try
+            {
+                da.Fill(ruas);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar ruas!\nErro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return ruas;
         }
 
         public void insereDados(object obj)
         {
-            Rua rua = new Rua();
-            rua = (Rua)obj;
+            Rua rua = obj as Rua;
+
+            if (rua == null)
+            {
+                MessageBox.Show("Objeto Rua inválido.");
+                return;
+            }
 
             ConectaBanco cb = new ConectaBanco();
             con = cb.conectaSqlServer();
-            cmd = new SqlCommand(sqlInsere, con);
+            cmd = new SqlCommand(sqlInserir, con);
 
-            cmd.Parameters.AddWithValue("@Nome", rua.Nomerua);
+            cmd.Parameters.AddWithValue("@nomerua", rua.Nomerua);
             cmd.CommandType = CommandType.Text;
             con.Open();
+
             try
             {
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
                 {
-                    MessageBox.Show("Registro incluído com sucesso");
+                    MessageBox.Show("Rua incluído com sucesso");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void editarDados(object obj)
+        {
+            Rua rua = obj as Rua;
+
+            if (rua == null)
+            {
+                MessageBox.Show("Objeto Rua inválido.");
+                return;
+            }
+
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlEditar, con);
+
+            cmd.Parameters.AddWithValue("@pnome", rua.Nomerua);
+            cmd.Parameters.AddWithValue("@pcodrua", rua.Codrua);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+
+            try
+            {
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    MessageBox.Show("Rua alterado com sucesso");
                 }
             }
             catch (Exception ex)

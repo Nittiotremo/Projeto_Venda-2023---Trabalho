@@ -16,19 +16,19 @@ namespace Projeto_Venda_2023.controller
         SqlConnection con;
         SqlCommand cmd;
 
-        string sqlInsere = "insert into trabalho (nometrabalho) values (@Nome)";
-        //string sqlEditar = "update trabalho set nometrabalho = @Nome where id = @Nome";
-        string sqlApagar = "delete from trabalho where codtrabalho = @Id";
-        string sqlTodos = "select * from trabalho";
-        //string sqlBuscarId = "select * from trabalho where codtrabalho = @Id";
-        public void apagaDados(int cod)
+        string sqlInserir = "INSERT INTO trabalho (nometrabalho) VALUES (@nometrabalho)";
+        string sqlApagar = "DELETE FROM trabalho WHERE codtrabalho = @codtrabalho";
+        string sqlTodos = "SELECT * FROM trabalho";
+        string sqlEditar = "update trabalho set nometrabalho = @pnome where codtrabalho = @pcodtrabalho";
+        string sqlBuscaNome = "select * from trabalho where nometrabalho like @pnome";
+
+        public void apagaDados(int codTrabalho)
         {
             ConectaBanco cb = new ConectaBanco();
             con = cb.conectaSqlServer();
             cmd = new SqlCommand(sqlApagar, con);
 
-            //Passando parâmetros para a sentença SQL
-            cmd.Parameters.AddWithValue("@Id", cod);
+            cmd.Parameters.AddWithValue("@codtrabalho", codTrabalho);
             cmd.CommandType = CommandType.Text;
             con.Open();
 
@@ -37,13 +37,12 @@ namespace Projeto_Venda_2023.controller
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
                 {
-                    MessageBox.Show("trabalho deletado com Sucesso!!!\n" +
-                        "Código: " + cod);
+                    MessageBox.Show("Trabalho apagado com sucesso!\nCódigo de Trabalho: " + codTrabalho);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao Apagar!\nErro:" + ex.ToString());
+                MessageBox.Show("Erro ao apagar trabalho!\nErro: " + ex.ToString());
             }
             finally
             {
@@ -53,70 +52,123 @@ namespace Projeto_Venda_2023.controller
 
         public DataTable buscarTodos()
         {
-            throw new NotImplementedException();
-        }
-
-
-        //List para carregar ComboBox da aplicação.
-        public List<Trabalho> carregaDados()
-        {
-            List<Trabalho> lista_trabalho = new List<Trabalho>();
-
             ConectaBanco cb = new ConectaBanco();
             con = cb.conectaSqlServer();
             cmd = new SqlCommand(sqlTodos, con);
-
             cmd.CommandType = CommandType.Text;
 
-            SqlDataReader tabTrabalho; //Representa uma Tabela Virtual para a leitura de dados
-            con.Open();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable trabalhos = new DataTable();
 
+            con.Open();
 
             try
             {
-                tabTrabalho = cmd.ExecuteReader();
-                while (tabTrabalho.Read())
-                {
-                    Trabalho aux = new Trabalho();
-
-                    aux.Codtrabalho = Int32.Parse(tabTrabalho["codtrabalho"].ToString());
-                    aux.Nometrabalho = tabTrabalho["nometrabalho"].ToString();
-
-                    lista_trabalho.Add(aux);
-                }
+                da.Fill(trabalhos);
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao buscar trabalhos!\nErro: " + ex.ToString());
             }
-            finally { con.Close(); }
+            finally
+            {
+                con.Close();
+            }
 
-            return lista_trabalho;
+            return trabalhos;
         }
 
-        public void editarDados(object obj)
+        public DataTable buscarNome(String valor)
         {
-            throw new NotImplementedException();
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlBuscaNome, con);
+
+            cmd.Parameters.AddWithValue("@pnome", valor + "%");
+            cmd.CommandType = CommandType.Text;
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable trabalhos = new DataTable();
+
+            con.Open();
+
+            try
+            {
+                da.Fill(trabalhos);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar trabalhos!\nErro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return trabalhos;
         }
 
         public void insereDados(object obj)
         {
-            Trabalho trabalho = new Trabalho();
-            trabalho = (Trabalho)obj;
+            Trabalho trabalho = obj as Trabalho;
+
+            if (trabalho == null)
+            {
+                MessageBox.Show("Objeto Trabalho inválido.");
+                return;
+            }
 
             ConectaBanco cb = new ConectaBanco();
             con = cb.conectaSqlServer();
-            cmd = new SqlCommand(sqlInsere, con);
+            cmd = new SqlCommand(sqlInserir, con);
 
-            cmd.Parameters.AddWithValue("@Nome", trabalho.Nometrabalho);
+            cmd.Parameters.AddWithValue("@nometrabalho", trabalho.Nometrabalho);
             cmd.CommandType = CommandType.Text;
             con.Open();
+
             try
             {
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
                 {
-                    MessageBox.Show("Registro incluído com sucesso");
+                    MessageBox.Show("Trabalho incluído com sucesso");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void editarDados(object obj)
+        {
+            Trabalho trabalho = obj as Trabalho;
+
+            if (trabalho == null)
+            {
+                MessageBox.Show("Objeto Trabalho inválido.");
+                return;
+            }
+
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlEditar, con);
+
+            cmd.Parameters.AddWithValue("@pnome", trabalho.Nometrabalho);
+            cmd.Parameters.AddWithValue("@pcodtrabalho", trabalho.Codtrabalho);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+
+            try
+            {
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    MessageBox.Show("Trabalho alterado com sucesso");
                 }
             }
             catch (Exception ex)
