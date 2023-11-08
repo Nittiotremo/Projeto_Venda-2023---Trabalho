@@ -16,11 +16,11 @@ namespace Projeto_Venda_2023.controller
         SqlConnection con;
         SqlCommand cmd;
 
-        string sqlInserir = "INSERT INTO cep (nomecep) VALUES (@nomecep)";
+        string sqlInserir = "INSERT INTO cep (numerocep) VALUES (@numerocep)";
         string sqlApagar = "DELETE FROM cep WHERE codcep = @codcep";
         string sqlTodos = "SELECT * FROM cep";
-        string sqlEditar = "update cep set nomecep = @pnome where codcep = @pcodcep";
-        string sqlBuscaNome = "select * from cep where nomecep like @pnome";
+        string sqlEditar = "update cep set numerocep = @pnome where codcep = @pcodcep";
+        string sqlBuscaNome = "select * from cep where numerocep like @pnome";
 
         public void apagaDados(int codCep)
         {
@@ -68,7 +68,7 @@ namespace Projeto_Venda_2023.controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao buscar ceps!\nErro: " + ex.ToString());
+                MessageBox.Show("Erro ao buscar cep!\nErro: " + ex.ToString());
             }
             finally
             {
@@ -98,7 +98,7 @@ namespace Projeto_Venda_2023.controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao buscar ceps!\nErro: " + ex.ToString());
+                MessageBox.Show("Erro ao buscar cep!\nErro: " + ex.ToString());
             }
             finally
             {
@@ -122,7 +122,7 @@ namespace Projeto_Venda_2023.controller
             con = cb.conectaSqlServer();
             cmd = new SqlCommand(sqlInserir, con);
 
-            cmd.Parameters.AddWithValue("@nomecep", cep.Numerocep);
+            cmd.Parameters.AddWithValue("@numerocep", cep.Numerocep);
             cmd.CommandType = CommandType.Text;
             con.Open();
 

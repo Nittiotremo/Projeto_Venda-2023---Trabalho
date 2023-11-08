@@ -23,7 +23,7 @@ namespace Projeto_Venda_2023.view
         SqlConnection con;
         SqlCommand cmd;
         SqlDataAdapter da;
-        DataTable clientes;
+        DataTable tabelaCidade;
         SqlDataReader tabCliente;
         DataRow[] linhaAtual;
 
@@ -51,7 +51,7 @@ namespace Projeto_Venda_2023.view
             List<Uf> aux = new List<Uf>();
 
             aux = cs.carregaDados();
-            //System.NullReferenceException: 'Referência de objeto não definida
+            //System.NullReferenceExcidadetion: 'Referência de objeto não definida
             //para uma instância de um objeto.'
             //Retirar esta mensagem até o form carregar
             comboUf.DataSource = aux;
@@ -63,11 +63,11 @@ namespace Projeto_Venda_2023.view
         {
 
         }
-
+        
         private void tsbNovo_Click(object sender, EventArgs e)
         {
-
-
+            AtivarTexts();
+            LimparCampos();
         }
 
         private void limpaCampos()
@@ -77,7 +77,33 @@ namespace Projeto_Venda_2023.view
 
         private void tsbSalvar_Click(object sender, EventArgs e)
         {
+            if (novo)
+            {
+                //comandos adicionar novo elemento
+                AtivarTexts();
 
+                Cidade cidade = new Cidade();
+                cidade.Nomecidade = textCidade.Text;
+
+                C_Cidade ca = new C_Cidade();
+                ca.insereDados(cidade);
+
+                carregarTabela();
+
+            }
+            else
+            {
+                //comandos para editar dados
+                Cidade cidade = new Cidade();
+                cidade.Nomecidade = textCidade.Text;
+                cidade.Codcidade = Int32.Parse(txtId.Text);
+
+                C_Acesso ca = new C_Acesso();
+                ca.editarDados(cidade);
+
+                carregarTabela();
+                novo = true;
+            }
 
         }
 
@@ -93,9 +119,12 @@ namespace Projeto_Venda_2023.view
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            C_Cidade ca = new C_Cidade();
 
-
-
+            tabelaCidade = ca.buscarNome(txtBuscar.Text);
+            carregarTabela();
+            AtivarTexts();
+            novo = false;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -157,5 +186,18 @@ namespace Projeto_Venda_2023.view
         {
 
         }
+        //Para copiar e colar 
+        private void LimparCampos()
+        {
+            txtId.Text = string.Empty;
+            textCidade.Text = string.Empty;
+        }
+
+        private void AtivarTexts()
+        {
+            txtId.Enabled = false;
+            textCidade.Enabled = true;
+        }
     }
+    
 }

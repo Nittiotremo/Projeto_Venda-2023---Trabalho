@@ -113,7 +113,5 @@ namespace Projeto_Venda_2023.view
         {
 
         }
-
-        
     }
 }
