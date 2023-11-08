@@ -16,21 +16,19 @@ namespace Projeto_Venda_2023.controller
         SqlConnection con;
         SqlCommand cmd;
 
-        string sqlInsere = "insert into bairro (nomebairro) values (@Nome)";
-        //string sqlEditar = "update bairro set nomebairro = @Nome where id = @Nome";
-        string sqlApagar = "delete from bairro where codbairro = @Id";
-        string sqlTodos = "select * from bairro";
-        //string sqlBuscarId = "select * from bairro where codbairro = @Id";
-        string sqlEditar = "update bairro set nomebairro = @pnome where codbairro = @pcodacesso";
+        string sqlInserir = "INSERT INTO bairro (nomebairro) VALUES (@nomebairro)";
+        string sqlApagar = "DELETE FROM bairro WHERE codbairro = @codbairro";
+        string sqlTodos = "SELECT * FROM bairro";
+        string sqlEditar = "update bairro set nomebairro = @pnome where codbairro = @pcodbairro";
         string sqlBuscaNome = "select * from bairro where nomebairro like @pnome";
-        public void apagaDados(int cod)
+
+        public void apagaDados(int codBairro)
         {
             ConectaBanco cb = new ConectaBanco();
             con = cb.conectaSqlServer();
             cmd = new SqlCommand(sqlApagar, con);
 
-            //Passando parâmetros para a sentença SQL
-            cmd.Parameters.AddWithValue("@Id", cod);
+            cmd.Parameters.AddWithValue("@codbairro", codBairro);
             cmd.CommandType = CommandType.Text;
             con.Open();
 
@@ -39,46 +37,17 @@ namespace Projeto_Venda_2023.controller
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
                 {
-                    MessageBox.Show("bairro deletado com Sucesso!!!\n" +
-                        "Código: " + cod);
+                    MessageBox.Show("Bairro apagado com sucesso!\nCódigo de Bairro: " + codBairro);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao Apagar!\nErro:" + ex.ToString());
+                MessageBox.Show("Erro ao apagar bairro!\nErro: " + ex.ToString());
             }
             finally
             {
                 con.Close();
             }
-        }
-
-        public DataTable buscarBairro()
-        {
-            ConectaBanco cb = new ConectaBanco();
-            con = cb.conectaSqlServer();
-            cmd = new SqlCommand(sqlTodos, con);
-            cmd.CommandType = CommandType.Text;
-
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable bairro = new DataTable();
-
-            con.Open();
-
-            try
-            {
-                da.Fill(bairro);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao buscar acessos!\nErro: " + ex.ToString());
-            }
-            finally
-            {
-                con.Close();
-            }
-
-            return bairro;
         }
 
         public DataTable buscarTodos()
@@ -89,80 +58,71 @@ namespace Projeto_Venda_2023.controller
             cmd.CommandType = CommandType.Text;
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable bairro = new DataTable();
+            DataTable bairros = new DataTable();
 
             con.Open();
 
             try
             {
-                da.Fill(bairro);
+                da.Fill(bairros);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao buscar bairro!\nErro: " + ex.ToString());
+                MessageBox.Show("Erro ao buscar bairros!\nErro: " + ex.ToString());
             }
             finally
             {
                 con.Close();
             }
 
-            return bairro;
+            return bairros;
         }
 
-
-        //List para carregar ComboBox da aplicação.
-        public List<Bairro> carregaDados()
+        public DataTable buscarNome(String valor)
         {
-            List<Bairro> lista_bairro = new List<Bairro>();
-
             ConectaBanco cb = new ConectaBanco();
             con = cb.conectaSqlServer();
-            cmd = new SqlCommand(sqlTodos, con);
+            cmd = new SqlCommand(sqlBuscaNome, con);
 
+            cmd.Parameters.AddWithValue("@pnome", valor + "%");
             cmd.CommandType = CommandType.Text;
 
-            SqlDataReader tabBairro; //Representa uma Tabela Virtual para a leitura de dados
-            con.Open();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable bairros = new DataTable();
 
+            con.Open();
 
             try
             {
-                tabBairro = cmd.ExecuteReader();
-                while (tabBairro.Read())
-                {
-                    Bairro aux = new Bairro();
-
-                    aux.Codbairro = Int32.Parse(tabBairro["codbairro"].ToString());
-                    aux.Nomebairro = tabBairro["nomebairro"].ToString();
-
-                    lista_bairro.Add(aux);
-                }
+                da.Fill(bairros);
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao buscar bairros!\nErro: " + ex.ToString());
             }
-            finally { con.Close(); }
+            finally
+            {
+                con.Close();
+            }
 
-            return lista_bairro;
+            return bairros;
         }
 
-        public void editarDados(object obj)
+        public void insereDados(object obj)
         {
             Bairro bairro = obj as Bairro;
 
             if (bairro == null)
             {
-                MessageBox.Show("Objeto Acesso inválido.");
+                MessageBox.Show("Objeto Bairro inválido.");
                 return;
             }
 
             ConectaBanco cb = new ConectaBanco();
             con = cb.conectaSqlServer();
-            cmd = new SqlCommand(sqlEditar, con);
+            cmd = new SqlCommand(sqlInserir, con);
 
-            cmd.Parameters.AddWithValue("@pnome", bairro.Nomebairro);
-            cmd.Parameters.AddWithValue("@pcodacesso", bairro.Codbairro);
+            cmd.Parameters.AddWithValue("@nomebairro", bairro.Nomebairro);
             cmd.CommandType = CommandType.Text;
             con.Open();
 
@@ -171,7 +131,7 @@ namespace Projeto_Venda_2023.controller
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
                 {
-                    MessageBox.Show("Bairro alterado com sucesso");
+                    MessageBox.Show("Bairro incluído com sucesso");
                 }
             }
             catch (Exception ex)
@@ -184,24 +144,31 @@ namespace Projeto_Venda_2023.controller
             }
         }
 
-        public void insereDados(object obj)
+        public void editarDados(object obj)
         {
-            Bairro bairro = new Bairro();
-            bairro = (Bairro)obj;
+            Bairro bairro = obj as Bairro;
+
+            if (bairro == null)
+            {
+                MessageBox.Show("Objeto Bairro inválido.");
+                return;
+            }
 
             ConectaBanco cb = new ConectaBanco();
             con = cb.conectaSqlServer();
-            cmd = new SqlCommand(sqlInsere, con);
+            cmd = new SqlCommand(sqlEditar, con);
 
-            cmd.Parameters.AddWithValue("@Nome", bairro.Nomebairro);
+            cmd.Parameters.AddWithValue("@pnome", bairro.Nomebairro);
+            cmd.Parameters.AddWithValue("@pcodbairro", bairro.Codbairro);
             cmd.CommandType = CommandType.Text;
             con.Open();
+
             try
             {
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
                 {
-                    MessageBox.Show("Registro incluído com sucesso");
+                    MessageBox.Show("Bairro alterado com sucesso");
                 }
             }
             catch (Exception ex)
