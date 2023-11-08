@@ -122,7 +122,7 @@ namespace Projeto_Venda_2023.controller
             con = cb.conectaSqlServer();
             cmd = new SqlCommand(sqlInserir, con);
 
-            cmd.Parameters.AddWithValue("@nomecep", cep.Nomecep);
+            cmd.Parameters.AddWithValue("@nomecep", cep.Numerocep);
             cmd.CommandType = CommandType.Text;
             con.Open();
 
@@ -158,7 +158,7 @@ namespace Projeto_Venda_2023.controller
             con = cb.conectaSqlServer();
             cmd = new SqlCommand(sqlEditar, con);
 
-            cmd.Parameters.AddWithValue("@pnome", cep.Nomecep);
+            cmd.Parameters.AddWithValue("@pnome", cep.Numerocep);
             cmd.Parameters.AddWithValue("@pcodcep", cep.Codcep);
             cmd.CommandType = CommandType.Text;
             con.Open();
