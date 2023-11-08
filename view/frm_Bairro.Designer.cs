@@ -93,7 +93,7 @@
             this.tsbNovo.Name = "tsbNovo";
             this.tsbNovo.Size = new System.Drawing.Size(23, 22);
             this.tsbNovo.Text = "toolStripButton1";
-            this.tsbNovo.ToolTipText = "Adicionar Novo Cliente";
+            this.tsbNovo.ToolTipText = "Adicionar Novo Bairro";
             this.tsbNovo.Click += new System.EventHandler(this.tsbNovo_Click);
             // 
             // tsbSalvar
@@ -104,7 +104,8 @@
             this.tsbSalvar.Name = "tsbSalvar";
             this.tsbSalvar.Size = new System.Drawing.Size(23, 22);
             this.tsbSalvar.Text = "toolStripButton1";
-            this.tsbSalvar.ToolTipText = "Salvar Cliente";
+            this.tsbSalvar.ToolTipText = "Salvar ";
+            this.tsbSalvar.Click += new System.EventHandler(this.tsbSalvar_Click);
             // 
             // tsbCancelar
             // 
@@ -152,6 +153,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(23, 22);
             this.btnBuscar.Text = "toolStripButton1";
             this.btnBuscar.ToolTipText = "Buscar Cliente";
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // toolStripSeparator2
             // 
@@ -218,7 +220,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 20);
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
             // label10
@@ -254,6 +256,7 @@
             // 
             // textBairro
             // 
+            this.textBairro.Enabled = false;
             this.textBairro.Location = new System.Drawing.Point(3, 102);
             this.textBairro.Name = "textBairro";
             this.textBairro.Size = new System.Drawing.Size(171, 20);
@@ -280,6 +283,7 @@
             // 
             // txtId
             // 
+            this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(3, 58);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;

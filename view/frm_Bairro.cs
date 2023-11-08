@@ -35,7 +35,7 @@ namespace Projeto_Venda_2023.view
         {
             C_Bairro ca = new C_Bairro();
 
-            tabelaBairro = ca.buscarBairro(txtBuscar.Text);
+            tabelaBairro = ca.buscarNome(txtBuscar.Text);
 
             dataGridView1.DataSource = tabelaBairro;
         }
@@ -72,7 +72,7 @@ namespace Projeto_Venda_2023.view
             {
                 //comandos para editar dados
                 Bairro bairro = new Bairro();
-                Bairro.Nomebairro = textBairro.Text;
+                bairro.Nomebairro = textBairro.Text;
                 bairro.Codbairro = Int32.Parse(txtId.Text);
 
                 C_Acesso ca = new C_Acesso();
@@ -87,7 +87,7 @@ namespace Projeto_Venda_2023.view
         {
             C_Bairro ca = new C_Bairro();
 
-            tabelaBairro = ca.buscarBairro(txtBuscar.Text);
+            tabelaBairro = ca.buscarNome(txtBuscar.Text);
             carregarTabela();
             AtivarTexts();
             novo = false;
@@ -113,7 +113,5 @@ namespace Projeto_Venda_2023.view
         {
 
         }
-
-        
     }
 }

@@ -16,13 +16,12 @@ namespace Projeto_Venda_2023.controller
         SqlConnection con;
         SqlCommand cmd;
 
-        string sqlInserir = "INSERT INTO cep (nomecep) VALUES (@nomecep)";
-        string sqlApagar = "DELETE FROM cep WHERE codcep = @codcep";
-        string sqlTodos = "SELECT * FROM cep";
-        string sqlEditar = "update cep set nomecep = @pnome where codcep = @pcodcep";
-        string sqlBuscaNome = "select * from cep where nomecep like @pnome";
-
-        public void apagaDados(int codCep)
+        string sqlInsere = "insert into cep (nomecep) values (@Nome)";
+       // string sqlEditar = "update cep set nomecep = @Nome where id = @Nome";
+        string sqlApagar = "delete from cep where codcep = @Id";
+        string sqlTodos = "select * from cep";
+        //string sqlBuscarId = "select * from cep where codcep = @Id";
+        public void apagaDados(int cod)
         {
             ConectaBanco cb = new ConectaBanco();
             con = cb.conectaSqlServer();
@@ -52,28 +51,8 @@ namespace Projeto_Venda_2023.controller
 
         public DataTable buscarTodos()
         {
-            ConectaBanco cb = new ConectaBanco();
-            con = cb.conectaSqlServer();
-            cmd = new SqlCommand(sqlTodos, con);
-            cmd.CommandType = CommandType.Text;
-
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable ceps = new DataTable();
-
-            con.Open();
-
-            try
-            {
-                da.Fill(ceps);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao buscar ceps!\nErro: " + ex.ToString());
-            }
-            finally
-            {
-                con.Close();
-            }
+            throw new NotImplementedException();
+        }
 
             return ceps;
         }
@@ -92,21 +71,6 @@ namespace Projeto_Venda_2023.controller
 
             con.Open();
 
-            try
-            {
-                da.Fill(ceps);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao buscar ceps!\nErro: " + ex.ToString());
-            }
-            finally
-            {
-                con.Close();
-            }
-
-            return ceps;
-        }
 
         public void insereDados(object obj)
         {
@@ -122,16 +86,7 @@ namespace Projeto_Venda_2023.controller
             con = cb.conectaSqlServer();
             cmd = new SqlCommand(sqlInserir, con);
 
-            cmd.Parameters.AddWithValue("@nomecep", cep.Numerocep);
-            cmd.CommandType = CommandType.Text;
-            con.Open();
-
-            try
-            {
-                int i = cmd.ExecuteNonQuery();
-                if (i > 0)
-                {
-                    MessageBox.Show("Cep incluído com sucesso");
+                    lista_cep.Add(aux);
                 }
             }
             catch (Exception ex)
