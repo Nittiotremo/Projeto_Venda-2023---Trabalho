@@ -21,6 +21,8 @@ namespace Projeto_Venda_2023.controller
         string sqlApagar = "delete from bairro where codbairro = @Id";
         string sqlTodos = "select * from bairro";
         //string sqlBuscarId = "select * from bairro where codbairro = @Id";
+        string sqlEditar = "update bairro set nomebairro = @pnome where codbairro = @pcodacesso";
+        string sqlBuscaNome = "select * from bairro where nomebairro like @pnome";
         public void apagaDados(int cod)
         {
             ConectaBanco cb = new ConectaBanco();
@@ -51,9 +53,60 @@ namespace Projeto_Venda_2023.controller
             }
         }
 
+        public DataTable buscarBairro()
+        {
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlTodos, con);
+            cmd.CommandType = CommandType.Text;
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable bairro = new DataTable();
+
+            con.Open();
+
+            try
+            {
+                da.Fill(bairro);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar acessos!\nErro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return bairro;
+        }
+
         public DataTable buscarTodos()
         {
-            throw new NotImplementedException();
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlTodos, con);
+            cmd.CommandType = CommandType.Text;
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable bairro = new DataTable();
+
+            con.Open();
+
+            try
+            {
+                da.Fill(bairro);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar bairro!\nErro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return bairro;
         }
 
 
@@ -96,7 +149,39 @@ namespace Projeto_Venda_2023.controller
 
         public void editarDados(object obj)
         {
-            throw new NotImplementedException();
+            Bairro bairro = obj as Bairro;
+
+            if (bairro == null)
+            {
+                MessageBox.Show("Objeto Acesso inválido.");
+                return;
+            }
+
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlEditar, con);
+
+            cmd.Parameters.AddWithValue("@pnome", bairro.Nomebairro);
+            cmd.Parameters.AddWithValue("@pcodacesso", bairro.Codbairro);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+
+            try
+            {
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    MessageBox.Show("Bairro alterado com sucesso");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
         }
 
         public void insereDados(object obj)

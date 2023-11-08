@@ -51,7 +51,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBairro = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
@@ -94,6 +94,7 @@
             this.tsbNovo.Size = new System.Drawing.Size(23, 22);
             this.tsbNovo.Text = "toolStripButton1";
             this.tsbNovo.ToolTipText = "Adicionar Novo Cliente";
+            this.tsbNovo.Click += new System.EventHandler(this.tsbNovo_Click);
             // 
             // tsbSalvar
             // 
@@ -217,7 +218,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 20);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
             // label10
@@ -251,12 +252,12 @@
             this.dataGridView1.Size = new System.Drawing.Size(542, 180);
             this.dataGridView1.TabIndex = 33;
             // 
-            // textBox1
+            // textBairro
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 102);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(171, 20);
-            this.textBox1.TabIndex = 45;
+            this.textBairro.Location = new System.Drawing.Point(3, 102);
+            this.textBairro.Name = "textBairro";
+            this.textBairro.Size = new System.Drawing.Size(171, 20);
+            this.textBairro.TabIndex = 45;
             // 
             // label7
             // 
@@ -291,7 +292,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(554, 361);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBairro);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtId);
@@ -337,7 +338,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBairro;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtId;
