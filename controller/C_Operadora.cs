@@ -9,11 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Projeto_Venda_2023.controller
+{
+    internal class C_Operadora : I_CRUD
     {
-        internal class C_Operadora : I_CRUD
-        {
         SqlConnection con;
         SqlCommand cmd;
 
@@ -182,4 +181,4 @@ namespace Projeto_Venda_2023.controller
             }
         }
     }
-    }
+}
