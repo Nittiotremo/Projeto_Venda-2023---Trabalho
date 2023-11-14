@@ -10,7 +10,7 @@ namespace Projeto_Venda_2023.conexao
     internal class ConectaBanco
     {
         SqlConnection con;
-        string connectionString = @"Server=TI6\SQLEXPRESS01;Database=loja_unifunec_2023;
+        string connectionString = @"Server=DESKTOP-3DSDGO7;Database=loja_unifunec_2023;
                                     Trusted_Connection=True;";
 
         public SqlConnection conectaSqlServer()

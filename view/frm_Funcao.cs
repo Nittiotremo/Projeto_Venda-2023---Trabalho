@@ -14,6 +14,7 @@ namespace Projeto_Venda_2023.view
 {
     public partial class frm_Funcao : Form
     {
+        DataTable tabelaFuncao;
         private Boolean novo = true;
         public frm_Funcao()
         {

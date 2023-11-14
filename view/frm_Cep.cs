@@ -113,5 +113,12 @@ namespace Projeto_Venda_2023.view
         {
 
         }
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+
+            txtId.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            textCep.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+        }
     }
 }

@@ -117,5 +117,7 @@ namespace Projeto_Venda_2023.controller
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }

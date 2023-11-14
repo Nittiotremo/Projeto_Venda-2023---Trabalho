@@ -121,7 +121,7 @@ namespace Projeto_Venda_2023.view
         {
             C_Cidade ca = new C_Cidade();
 
-            tabelaCidade = ca.buscarNome(txtBuscar.Text);
+            //tabelaCidade = ca.buscarNome(txtBuscar.Text);
             carregarTabela();
             AtivarTexts();
             novo = false;
