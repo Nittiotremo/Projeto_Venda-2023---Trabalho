@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,32 +16,41 @@ namespace Projeto_Venda_2023.view
     public partial class frm_Funcao : Form
     {
         DataTable tabelaFuncao;
+        SqlDataAdapter da;
+
         private Boolean novo = true;
         public frm_Funcao()
         {
             InitializeComponent();
+            carregarTabela();
         }
 
-        private void funcaoBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        public void carregarTabela()
         {
-            this.Validate();
-            this.funcaoBindingSource.EndEdit();
-          
+            C_Funcao ca = new C_Funcao();
 
+            tabelaFuncao = ca.buscarNome(txtBuscar.Text);
+
+            dataGridView1.DataSource = tabelaFuncao;
         }
 
-        private void frm_Funcao_Load(object sender, EventArgs e)
+        private void AtivarTexts()
         {
-            // TODO: esta linha de código carrega dados na tabela 'loja_unifunec_2023.funcao'. Você pode movê-la ou removê-la conforme necessário.
-           
+            txtId.Enabled = false;
+            textFuncao.Enabled = true;
+        }
 
+        private void LimparCampos()
+        {
+            txtId.Text = string.Empty;
+            textFuncao.Text = string.Empty;
         }
 
         private void tsbNovo_Click(object sender, EventArgs e)
         {
-
+            AtivarTexts();
+            LimparCampos();
         }
-        
 
         private void tsbSalvar_Click(object sender, EventArgs e)
         {
@@ -49,11 +59,11 @@ namespace Projeto_Venda_2023.view
                 //comandos adicionar novo elemento
                 AtivarTexts();
 
-                Acesso acesso = new Acesso();
-                acesso.Nomeacesso = textFuncao.Text;
+                Funcao funcao = new Funcao();
+                funcao.Nomefuncao = textFuncao.Text;
 
-                C_Acesso ca = new C_Acesso();
-                ca.insereDados(acesso);
+                C_Funcao ca = new C_Funcao();
+                ca.insereDados(funcao);
 
                 carregarTabela();
 
@@ -61,34 +71,37 @@ namespace Projeto_Venda_2023.view
             else
             {
                 //comandos para editar dados
-                Acesso acesso = new Acesso();
-                acesso.Nomeacesso = textFuncao.Text;
-                acesso.Codacesso = Int32.Parse(txtId.Text);
+                Funcao funcao = new Funcao();
+                funcao.Nomefuncao = textFuncao.Text;
+                funcao.Codfuncao = Int32.Parse(txtId.Text);
 
-                C_Acesso ca = new C_Acesso();
-                ca.editarDados(acesso);
+                C_Funcao ca = new C_Funcao();
+                ca.editarDados(funcao);
 
                 carregarTabela();
                 novo = true;
             }
         }
-        private void LimparCampos()
-        {
-            txtId.Text = string.Empty;
-            textFuncao.Text = string.Empty;
-        }
-        private void AtivarTexts()
-        {
-            txtId.Enabled = false;
-            textFuncao.Enabled = true;
-        }
-        public void carregarTabela()
+
+
+
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
             C_Funcao ca = new C_Funcao();
 
             tabelaFuncao = ca.buscarNome(txtBuscar.Text);
+            carregarTabela();
+            AtivarTexts();
+            novo = false;
 
-            dataGridView1.DataSource = tabelaFuncao;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+
+            txtId.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            textFuncao.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
         }
     }
 }

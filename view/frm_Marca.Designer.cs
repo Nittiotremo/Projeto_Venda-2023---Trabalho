@@ -53,7 +53,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
+            this.textMarca = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.marcaBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -94,6 +94,7 @@
             this.tsbNovo.Size = new System.Drawing.Size(23, 22);
             this.tsbNovo.Text = "toolStripButton1";
             this.tsbNovo.ToolTipText = "Adicionar Novo Cliente";
+            this.tsbNovo.Click += new System.EventHandler(this.tsbNovo_Click);
             // 
             // tsbSalvar
             // 
@@ -104,6 +105,7 @@
             this.tsbSalvar.Size = new System.Drawing.Size(23, 22);
             this.tsbSalvar.Text = "toolStripButton1";
             this.tsbSalvar.ToolTipText = "Salvar Cliente";
+            this.tsbSalvar.Click += new System.EventHandler(this.tsbSalvar_Click);
             // 
             // tsbCancelar
             // 
@@ -138,6 +140,7 @@
             // 
             // txtBuscar
             // 
+            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(180, 25);
             // 
@@ -268,17 +271,19 @@
             this.label1.TabIndex = 23;
             this.label1.Text = "Código";
             // 
-            // txtNome
+            // textMarca
             // 
-            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNome.Location = new System.Drawing.Point(3, 109);
-            this.txtNome.MaxLength = 50;
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(207, 20);
-            this.txtNome.TabIndex = 22;
+            this.textMarca.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textMarca.Enabled = false;
+            this.textMarca.Location = new System.Drawing.Point(3, 109);
+            this.textMarca.MaxLength = 50;
+            this.textMarca.Name = "textMarca";
+            this.textMarca.Size = new System.Drawing.Size(207, 20);
+            this.textMarca.TabIndex = 22;
             // 
             // txtId
             // 
+            this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(3, 71);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
@@ -296,12 +301,11 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.textMarca);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frm_Marca";
             this.Text = "Marca";
-            this.Load += new System.EventHandler(this.frm_Marca_Load);
             ((System.ComponentModel.ISupportInitialize)(this.marcaBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -338,7 +342,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox textMarca;
         private System.Windows.Forms.TextBox txtId;
     }
 }

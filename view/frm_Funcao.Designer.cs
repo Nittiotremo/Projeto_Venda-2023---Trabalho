@@ -283,6 +283,7 @@
             // 
             // txtId
             // 
+            this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(9, 76);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
@@ -305,7 +306,6 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "frm_Funcao";
             this.Text = "Função";
-            this.Load += new System.EventHandler(this.frm_Funcao_Load);
             ((System.ComponentModel.ISupportInitialize)(this.funcaoBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
