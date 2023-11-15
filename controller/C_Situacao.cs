@@ -10,106 +10,175 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projeto_Venda_2023.controller
+{
+    internal class C_Situacao : I_CRUD
     {
-        internal class C_Situacao : I_CRUD
+        SqlConnection con;
+        SqlCommand cmd;
+
+        string sqlInserir = "INSERT INTO situacao (nomesituacao) VALUES (@nomesituacao)";
+        string sqlApagar = "DELETE FROM situacao WHERE codsituacao = @codsituacao";
+        string sqlTodos = "SELECT * FROM situacao";
+        string sqlEditar = "update situacao set nomesituacao = @pnome where codsituacao = @pcodsituacao";
+        string sqlBuscaNome = "select * from situacao where nomesituacao like @pnome";
+
+        public void apagaDados(int codSituacao)
         {
-            SqlConnection con;
-            SqlCommand cmd;
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlApagar, con);
 
-            string sqlInserir = "INSERT INTO situacao (nomesituacao) VALUES (@nomesituacao)";
-            string sqlApagar = "DELETE FROM situacao WHERE codsituacao = @codsituacao";
-            string sqlTodos = "SELECT * FROM situacao";
+            cmd.Parameters.AddWithValue("@codsituacao", codSituacao);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
 
-            public void apagaDados(int codSituacao)
+            try
             {
-                ConectaBanco cb = new ConectaBanco();
-                con = cb.conectaSqlServer();
-                cmd = new SqlCommand(sqlApagar, con);
-
-                cmd.Parameters.AddWithValue("@codsituacao", codSituacao);
-                cmd.CommandType = CommandType.Text;
-                con.Open();
-
-                try
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
                 {
-                    int i = cmd.ExecuteNonQuery();
-                    if (i > 0)
-                    {
-                        MessageBox.Show("Situação apagada com sucesso!\nCódigo: " + codSituacao);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao apagar a situação!\nErro: " + ex.ToString());
-                }
-                finally
-                {
-                    con.Close();
+                    MessageBox.Show("Situacao apagado com sucesso!\nCódigo de Situacao: " + codSituacao);
                 }
             }
-
-            public DataTable buscarTodos()
+            catch (Exception ex)
             {
-                ConectaBanco cb = new ConectaBanco();
-                con = cb.conectaSqlServer();
-                cmd = new SqlCommand(sqlTodos, con);
-                cmd.CommandType = CommandType.Text;
+                MessageBox.Show("Erro ao apagar situacao!\nErro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
 
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable situacoes = new DataTable();
+        public DataTable buscarTodos()
+        {
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlTodos, con);
+            cmd.CommandType = CommandType.Text;
 
-                con.Open();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable situacaos = new DataTable();
 
-                try
-                {
-                    da.Fill(situacoes);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao buscar situações!\nErro: " + ex.ToString());
-                }
-                finally
-                {
-                    con.Close();
-                }
+            con.Open();
 
-                return situacoes;
+            try
+            {
+                da.Fill(situacaos);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar situacaos!\nErro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
             }
 
-            public void insereDados(object obj)
+            return situacaos;
+        }
+
+        public DataTable buscarNome(String valor)
+        {
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlBuscaNome, con);
+
+            cmd.Parameters.AddWithValue("@pnome", valor + "%");
+            cmd.CommandType = CommandType.Text;
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable situacaos = new DataTable();
+
+            con.Open();
+
+            try
             {
-                Situacao situacao = obj as Situacao;
+                da.Fill(situacaos);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar situacaos!\nErro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
 
-                if (situacao == null)
-                {
-                    MessageBox.Show("Objeto Situacao inválido.");
-                    return;
-                }
+            return situacaos;
+        }
 
-                ConectaBanco cb = new ConectaBanco();
-                con = cb.conectaSqlServer();
-                cmd = new SqlCommand(sqlInserir, con);
+        public void insereDados(object obj)
+        {
+            Situacao situacao = obj as Situacao;
 
-                cmd.Parameters.AddWithValue("@nomesituacao", situacao.Nomesituacao);
-                cmd.CommandType = CommandType.Text;
-                con.Open();
+            if (situacao == null)
+            {
+                MessageBox.Show("Objeto Situacao inválido.");
+                return;
+            }
 
-                try
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlInserir, con);
+
+            cmd.Parameters.AddWithValue("@nomesituacao", situacao.Nomesituacao);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+
+            try
+            {
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
                 {
-                    int i = cmd.ExecuteNonQuery();
-                    if (i > 0)
-                    {
-                        MessageBox.Show("Situação incluída com sucesso");
-                    }
+                    MessageBox.Show("Situacao incluído com sucesso");
                 }
-                catch (Exception ex)
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void editarDados(object obj)
+        {
+            Situacao situacao = obj as Situacao;
+
+            if (situacao == null)
+            {
+                MessageBox.Show("Objeto Situacao inválido.");
+                return;
+            }
+
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlEditar, con);
+
+            cmd.Parameters.AddWithValue("@pnome", situacao.Nomesituacao);
+            cmd.Parameters.AddWithValue("@pcodsituacao", situacao.Codsituacao);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+
+            try
+            {
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
                 {
-                    MessageBox.Show("Erro: " + ex.ToString());
+                    MessageBox.Show("Situacao alterado com sucesso");
                 }
-                finally
-                {
-                    con.Close();
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
             }
         }
     }
+}

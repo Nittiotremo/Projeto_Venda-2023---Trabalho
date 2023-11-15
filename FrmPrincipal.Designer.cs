@@ -188,12 +188,7 @@
             this.ufToolStripMenuItem.Name = "ufToolStripMenuItem";
             this.ufToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ufToolStripMenuItem.Text = "Uf";
-            // 
-            // cadastroCidadeToolStripMenuItem
-            // 
-            this.cadastroCidadeToolStripMenuItem.Name = "cadastroCidadeToolStripMenuItem";
-            this.cadastroCidadeToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.cadastroCidadeToolStripMenuItem.Text = "Cadastro Cidade";
+            this.ufToolStripMenuItem.Click += new System.EventHandler(this.ufToolStripMenuItem_Click);
             // 
             // sexoToolStripMenuItem
             // 
@@ -206,6 +201,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(83)))), ((int)(((byte)(139)))));
             this.ClientSize = new System.Drawing.Size(695, 440);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

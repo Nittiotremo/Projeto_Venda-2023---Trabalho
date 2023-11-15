@@ -10,106 +10,176 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projeto_Venda_2023.controller
+{
+    internal class C_Marca : I_CRUD
     {
-        internal class C_Marca : I_CRUD
+        SqlConnection con;
+        SqlCommand cmd;
+
+        string sqlInserir = "INSERT INTO marca (nomemarca) VALUES (@nomemarca)";
+        string sqlApagar = "DELETE FROM marca WHERE codmarca = @codmarca";
+        string sqlTodos = "SELECT * FROM marca";
+        string sqlEditar = "update marca set nomemarca = @pnome where codmarca = @pcodmarca";
+        string sqlBuscaNome = "select * from marca where nomemarca like @pnome";
+
+        public void apagaDados(int codMarca)
         {
-            SqlConnection con;
-            SqlCommand cmd;
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlApagar, con);
 
-            string sqlInserir = "INSERT INTO marca (nomemarca) VALUES (@nomemarca)";
-            string sqlApagar = "DELETE FROM marca WHERE codmarca = @codmarca";
-            string sqlTodos = "SELECT * FROM marca";
+            cmd.Parameters.AddWithValue("@codmarca", codMarca);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
 
-            public void apagaDados(int codMarca)
+            try
             {
-                ConectaBanco cb = new ConectaBanco();
-                con = cb.conectaSqlServer();
-                cmd = new SqlCommand(sqlApagar, con);
-
-                cmd.Parameters.AddWithValue("@codmarca", codMarca);
-                cmd.CommandType = CommandType.Text;
-                con.Open();
-
-                try
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
                 {
-                    int i = cmd.ExecuteNonQuery();
-                    if (i > 0)
-                    {
-                        MessageBox.Show("Marca apagada com sucesso!\nCódigo da Marca: " + codMarca);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao apagar a Marca!\nErro: " + ex.ToString());
-                }
-                finally
-                {
-                    con.Close();
+                    MessageBox.Show("Marca apagado com sucesso!\nCódigo de Marca: " + codMarca);
                 }
             }
-
-            public DataTable buscarTodos()
+            catch (Exception ex)
             {
-                ConectaBanco cb = new ConectaBanco();
-                con = cb.conectaSqlServer();
-                cmd = new SqlCommand(sqlTodos, con);
-                cmd.CommandType = CommandType.Text;
+                MessageBox.Show("Erro ao apagar marca!\nErro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
 
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable marcas = new DataTable();
+        public DataTable buscarTodos()
+        {
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlTodos, con);
+            cmd.CommandType = CommandType.Text;
 
-                con.Open();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable marcas = new DataTable();
 
-                try
-                {
-                    da.Fill(marcas);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao buscar Marcas!\nErro: " + ex.ToString());
-                }
-                finally
-                {
-                    con.Close();
-                }
+            con.Open();
 
-                return marcas;
+            try
+            {
+                da.Fill(marcas);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar marcas!\nErro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
             }
 
-            public void insereDados(object obj)
+            return marcas;
+        }
+
+        public DataTable buscarNome(String valor)
+        {
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlBuscaNome, con);
+
+            cmd.Parameters.AddWithValue("@pnome", valor + "%");
+            cmd.CommandType = CommandType.Text;
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable marcas = new DataTable();
+
+            con.Open();
+
+            try
             {
-                Marca marca = obj as Marca;
+                da.Fill(marcas);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar marcas!\nErro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
 
-                if (marca == null)
-                {
-                    MessageBox.Show("Objeto Marca inválido.");
-                    return;
-                }
+            return marcas;
+        }
 
-                ConectaBanco cb = new ConectaBanco();
-                con = cb.conectaSqlServer();
-                cmd = new SqlCommand(sqlInserir, con);
+        public void insereDados(object obj)
+        {
+            Marca marca = obj as Marca;
 
-                cmd.Parameters.AddWithValue("@nomemarca", marca.Nomemarca);
-                cmd.CommandType = CommandType.Text;
-                con.Open();
+            if (marca == null)
+            {
+                MessageBox.Show("Objeto Marca inválido.");
+                return;
+            }
 
-                try
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlInserir, con);
+
+            cmd.Parameters.AddWithValue("@nomemarca", marca.Nomemarca);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+
+            try
+            {
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
                 {
-                    int i = cmd.ExecuteNonQuery();
-                    if (i > 0)
-                    {
-                        MessageBox.Show("Marca incluída com sucesso");
-                    }
+                    MessageBox.Show("Marca incluído com sucesso");
                 }
-                catch (Exception ex)
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void editarDados(object obj)
+        {
+            Marca marca = obj as Marca;
+
+            if (marca == null)
+            {
+                MessageBox.Show("Objeto Marca inválido.");
+                return;
+            }
+
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlEditar, con);
+
+            cmd.Parameters.AddWithValue("@pnome", marca.Nomemarca);
+            cmd.Parameters.AddWithValue("@pcodmarca", marca.Codmarca);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+
+            try
+            {
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
                 {
-                    MessageBox.Show("Erro: " + ex.ToString());
+                    MessageBox.Show("Marca alterado com sucesso");
                 }
-                finally
-                {
-                    con.Close();
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
             }
         }
     }
+}
+

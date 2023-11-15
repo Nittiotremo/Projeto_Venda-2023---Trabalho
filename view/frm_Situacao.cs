@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Projeto_Venda_2023.controller;
+using Projeto_Venda_2023.model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,22 +15,93 @@ namespace Projeto_Venda_2023.view
 {
     public partial class frm_Situacao : Form
     {
+        DataTable tabelaSituacao;
+        SqlDataAdapter da;
+
+        private Boolean novo = true;
         public frm_Situacao()
         {
             InitializeComponent();
+            carregarTabela();
         }
 
-        private void situacaoBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        public void carregarTabela()
         {
-            this.Validate();
-          
+            C_Situacao ca = new C_Situacao();
+
+            tabelaSituacao = ca.buscarNome(txtBuscar.Text);
+
+            dataGridView1.DataSource = tabelaSituacao;
+        }
+
+        private void AtivarTexts()
+        {
+            txtId.Enabled = false;
+            txtSituacao.Enabled = true;
+        }
+
+        private void LimparCampos()
+        {
+            txtId.Text = string.Empty;
+            txtSituacao.Text = string.Empty;
+        }
+
+        private void tsbNovo_Click(object sender, EventArgs e)
+        {
+            AtivarTexts();
+            LimparCampos();
+        }
+
+        private void tsbSalvar_Click(object sender, EventArgs e)
+        {
+            if (novo)
+            {
+                //comandos adicionar novo elemento
+                AtivarTexts();
+
+                Situacao situacao = new Situacao();
+                situacao.Nomesituacao = txtSituacao.Text;
+
+                C_Situacao ca = new C_Situacao();
+                ca.insereDados(situacao);
+
+                carregarTabela();
+
+            }
+            else
+            {
+                //comandos para editar dados
+                Situacao situacao = new Situacao();
+                situacao.Nomesituacao = txtSituacao.Text;
+                situacao.Codsituacao = Int32.Parse(txtId.Text);
+
+                C_Situacao ca = new C_Situacao();
+                ca.editarDados(situacao);
+
+                carregarTabela();
+                novo = true;
+            }
+        }
+
+
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            C_Situacao ca = new C_Situacao();
+
+            tabelaSituacao = ca.buscarNome(txtBuscar.Text);
+            carregarTabela();
+            AtivarTexts();
+            novo = false;
 
         }
 
-        private void frm_Situacao_Load(object sender, EventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+            int index = e.RowIndex;
 
+            txtId.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txtSituacao.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
         }
     }
 }

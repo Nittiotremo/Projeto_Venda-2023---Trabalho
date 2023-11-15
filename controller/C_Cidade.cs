@@ -112,5 +112,12 @@ namespace Projeto_Venda_2023.controller
                 con.Close();
             }
         }
+
+        public void editarDados(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        
     }
 }

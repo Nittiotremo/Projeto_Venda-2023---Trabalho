@@ -77,7 +77,12 @@ namespace Projeto_Venda_2023.controller
                 return controles;
             }
 
-            public void insereDados(object obj)
+        public void editarDados(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void insereDados(object obj)
             {
                 ControleLogSistema controleLog = obj as ControleLogSistema;
 

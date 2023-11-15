@@ -77,7 +77,12 @@ namespace Projeto_Venda_2023.controller
                 return fornecedores;
             }
 
-            public void insereDados(object obj)
+        public void editarDados(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void insereDados(object obj)
             {
                 Fornecedor fornecedor = obj as Fornecedor;
 

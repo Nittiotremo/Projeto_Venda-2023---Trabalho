@@ -11,7 +11,7 @@ namespace Projeto_Venda_2023.controller
     {
         void insereDados(Object obj);
 
-        /*void editarDados(Object obj);*/
+        void editarDados(Object obj);
 
         void apagaDados(int cod);
 

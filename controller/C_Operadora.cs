@@ -9,108 +9,176 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Projeto_Venda_2023.controller
+{
+    internal class C_Operadora : I_CRUD
     {
-        internal class C_Operadora : I_CRUD
+        SqlConnection con;
+        SqlCommand cmd;
+
+        string sqlInserir = "INSERT INTO operadora (nomeoperadora) VALUES (@nomeoperadora)";
+        string sqlApagar = "DELETE FROM operadora WHERE codoperadora = @codoperadora";
+        string sqlTodos = "SELECT * FROM operadora";
+        string sqlEditar = "update operadora set nomeoperadora = @pnome where codoperadora = @pcodoperadora";
+        string sqlBuscaNome = "select * from operadora where nomeoperadora like @pnome";
+
+        public void apagaDados(int codOperadora)
         {
-            SqlConnection con;
-            SqlCommand cmd;
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlApagar, con);
 
-            string sqlInserir = "INSERT INTO operadora (nomeoperadora) VALUES (@nomeoperadora)";
-            string sqlApagar = "DELETE FROM operadora WHERE codoperadora = @Id";
-            string sqlTodos = "SELECT * FROM operadora";
+            cmd.Parameters.AddWithValue("@codoperadora", codOperadora);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
 
-            public void apagaDados(int cod)
+            try
             {
-                ConectaBanco cb = new ConectaBanco();
-                con = cb.conectaSqlServer();
-                cmd = new SqlCommand(sqlApagar, con);
-
-                cmd.Parameters.AddWithValue("@Id", cod);
-                cmd.CommandType = CommandType.Text;
-                con.Open();
-
-                try
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
                 {
-                    int i = cmd.ExecuteNonQuery();
-                    if (i > 0)
-                    {
-                        MessageBox.Show("Operadora deletada com sucesso!\nCódigo: " + cod);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao apagar Operadora!\nErro: " + ex.ToString());
-                }
-                finally
-                {
-                    con.Close();
+                    MessageBox.Show("Operadora apagado com sucesso!\nCódigo de Operadora: " + codOperadora);
                 }
             }
-
-            public DataTable buscarTodos()
+            catch (Exception ex)
             {
-                ConectaBanco cb = new ConectaBanco();
-                con = cb.conectaSqlServer();
-                cmd = new SqlCommand(sqlTodos, con);
-                cmd.CommandType = CommandType.Text;
+                MessageBox.Show("Erro ao apagar operadora!\nErro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
 
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable operadoras = new DataTable();
+        public DataTable buscarTodos()
+        {
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlTodos, con);
+            cmd.CommandType = CommandType.Text;
 
-                con.Open();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable operadoras = new DataTable();
 
-                try
-                {
-                    da.Fill(operadoras);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao buscar operadoras!\nErro: " + ex.ToString());
-                }
-                finally
-                {
-                    con.Close();
-                }
+            con.Open();
 
-                return operadoras;
+            try
+            {
+                da.Fill(operadoras);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar operadoras!\nErro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
             }
 
-            public void insereDados(object obj)
+            return operadoras;
+        }
+
+        public DataTable buscarNome(String valor)
+        {
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlBuscaNome, con);
+
+            cmd.Parameters.AddWithValue("@pnome", valor + "%");
+            cmd.CommandType = CommandType.Text;
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable operadoras = new DataTable();
+
+            con.Open();
+
+            try
             {
-                Operadora operadora = obj as Operadora;
+                da.Fill(operadoras);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar operadoras!\nErro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
 
-                if (operadora == null)
-                {
-                    MessageBox.Show("Objeto Operadora inválido.");
-                    return;
-                }
+            return operadoras;
+        }
 
-                ConectaBanco cb = new ConectaBanco();
-                con = cb.conectaSqlServer();
-                cmd = new SqlCommand(sqlInserir, con);
+        public void insereDados(object obj)
+        {
+            Operadora operadora = obj as Operadora;
 
-                cmd.Parameters.AddWithValue("@nomeoperadora", operadora.Nomeoperadora);
-                cmd.CommandType = CommandType.Text;
-                con.Open();
+            if (operadora == null)
+            {
+                MessageBox.Show("Objeto Operadora inválido.");
+                return;
+            }
 
-                try
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlInserir, con);
+
+            cmd.Parameters.AddWithValue("@nomeoperadora", operadora.Nomeoperadora);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+
+            try
+            {
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
                 {
-                    int i = cmd.ExecuteNonQuery();
-                    if (i > 0)
-                    {
-                        MessageBox.Show("Operadora incluída com sucesso");
-                    }
+                    MessageBox.Show("Operadora incluído com sucesso");
                 }
-                catch (Exception ex)
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void editarDados(object obj)
+        {
+            Operadora operadora = obj as Operadora;
+
+            if (operadora == null)
+            {
+                MessageBox.Show("Objeto Operadora inválido.");
+                return;
+            }
+
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlEditar, con);
+
+            cmd.Parameters.AddWithValue("@pnome", operadora.Nomeoperadora);
+            cmd.Parameters.AddWithValue("@pcodoperadora", operadora.Codoperadora);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+
+            try
+            {
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
                 {
-                    MessageBox.Show("Erro: " + ex.ToString());
+                    MessageBox.Show("Operadora alterado com sucesso");
                 }
-                finally
-                {
-                    con.Close();
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
             }
         }
     }
+}

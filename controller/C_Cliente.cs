@@ -80,7 +80,12 @@ namespace Projeto_Venda_2023.controller
                 return clientes;
             }
 
-            public void insereDados(object obj)
+        public void editarDados(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void insereDados(object obj)
             {
                 Cliente cliente = obj as Cliente;
 

@@ -10,106 +10,175 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projeto_Venda_2023.controller
+{
+    internal class C_Funcao : I_CRUD
     {
-        internal class C_Funcao : I_CRUD
+        SqlConnection con;
+        SqlCommand cmd;
+
+        string sqlInserir = "INSERT INTO funcao (nomefuncao) VALUES (@nomefuncao)";
+        string sqlApagar = "DELETE FROM funcao WHERE codfuncao = @codfuncao";
+        string sqlTodos = "SELECT * FROM funcao";
+        string sqlEditar = "update funcao set nomefuncao = @pnome where codfuncao = @pcodfuncao";
+        string sqlBuscaNome = "select * from funcao where nomefuncao like @pnome";
+
+        public void apagaDados(int codFuncao)
         {
-            SqlConnection con;
-            SqlCommand cmd;
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlApagar, con);
 
-            string sqlInserir = "INSERT INTO funcao (nomefuncao) VALUES (@nomefuncao)";
-            string sqlApagar = "DELETE FROM funcao WHERE codfuncao = @codfuncao";
-            string sqlTodos = "SELECT * FROM funcao";
+            cmd.Parameters.AddWithValue("@codfuncao", codFuncao);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
 
-            public void apagaDados(int codFuncao)
+            try
             {
-                ConectaBanco cb = new ConectaBanco();
-                con = cb.conectaSqlServer();
-                cmd = new SqlCommand(sqlApagar, con);
-
-                cmd.Parameters.AddWithValue("@codfuncao", codFuncao);
-                cmd.CommandType = CommandType.Text;
-                con.Open();
-
-                try
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
                 {
-                    int i = cmd.ExecuteNonQuery();
-                    if (i > 0)
-                    {
-                        MessageBox.Show("Função apagada com sucesso!\nCódigo: " + codFuncao);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao apagar função!\nErro: " + ex.ToString());
-                }
-                finally
-                {
-                    con.Close();
+                    MessageBox.Show("Funcao apagado com sucesso!\nCódigo de Funcao: " + codFuncao);
                 }
             }
-
-            public DataTable buscarTodos()
+            catch (Exception ex)
             {
-                ConectaBanco cb = new ConectaBanco();
-                con = cb.conectaSqlServer();
-                cmd = new SqlCommand(sqlTodos, con);
-                cmd.CommandType = CommandType.Text;
+                MessageBox.Show("Erro ao apagar funcao!\nErro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
 
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable funcoes = new DataTable();
+        public DataTable buscarTodos()
+        {
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlTodos, con);
+            cmd.CommandType = CommandType.Text;
 
-                con.Open();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable funcaos = new DataTable();
 
-                try
-                {
-                    da.Fill(funcoes);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao buscar funções!\nErro: " + ex.ToString());
-                }
-                finally
-                {
-                    con.Close();
-                }
+            con.Open();
 
-                return funcoes;
+            try
+            {
+                da.Fill(funcaos);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar funcaos!\nErro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
             }
 
-            public void insereDados(object obj)
+            return funcaos;
+        }
+
+        public DataTable buscarNome(String valor)
+        {
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlBuscaNome, con);
+
+            cmd.Parameters.AddWithValue("@pnome", valor + "%");
+            cmd.CommandType = CommandType.Text;
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable funcaos = new DataTable();
+
+            con.Open();
+
+            try
             {
-                Funcao funcao = obj as Funcao;
+                da.Fill(funcaos);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar funcaos!\nErro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
 
-                if (funcao == null)
-                {
-                    MessageBox.Show("Objeto Função inválido.");
-                    return;
-                }
+            return funcaos;
+        }
 
-                ConectaBanco cb = new ConectaBanco();
-                con = cb.conectaSqlServer();
-                cmd = new SqlCommand(sqlInserir, con);
+        public void insereDados(object obj)
+        {
+            Funcao funcao = obj as Funcao;
 
-                cmd.Parameters.AddWithValue("@nomefuncao", funcao.Nomefuncao);
-                cmd.CommandType = CommandType.Text;
-                con.Open();
+            if (funcao == null)
+            {
+                MessageBox.Show("Objeto Funcao inválido.");
+                return;
+            }
 
-                try
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlInserir, con);
+
+            cmd.Parameters.AddWithValue("@nomefuncao", funcao.Nomefuncao);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+
+            try
+            {
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
                 {
-                    int i = cmd.ExecuteNonQuery();
-                    if (i > 0)
-                    {
-                        MessageBox.Show("Função incluída com sucesso");
-                    }
+                    MessageBox.Show("Funcao incluído com sucesso");
                 }
-                catch (Exception ex)
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void editarDados(object obj)
+        {
+            Funcao funcao = obj as Funcao;
+
+            if (funcao == null)
+            {
+                MessageBox.Show("Objeto Funcao inválido.");
+                return;
+            }
+
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlEditar, con);
+
+            cmd.Parameters.AddWithValue("@pnome", funcao.Nomefuncao);
+            cmd.Parameters.AddWithValue("@pcodfuncao", funcao.Codfuncao);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+
+            try
+            {
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
                 {
-                    MessageBox.Show("Erro: " + ex.ToString());
+                    MessageBox.Show("Funcao alterado com sucesso");
                 }
-                finally
-                {
-                    con.Close();
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
             }
         }
     }
+}

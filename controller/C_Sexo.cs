@@ -2,9 +2,8 @@
 using Projeto_Venda_2023.model;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,19 +16,19 @@ namespace Projeto_Venda_2023.controller
         SqlConnection con;
         SqlCommand cmd;
 
-        string sqlInsere = "insert into sexo (nomesexo) values (@Nome)";
-        //string sqlEditar = "update sexo set nomesexo = @Nome where id = @Nome";
-        string sqlApagar = "delete from sexo where codsexo = @Id";
-        string sqlTodos = "select * from sexo";
-       // string sqlBuscarId = "select * from sexo where codsexo = @Id";
-        public void apagaDados(int cod)
+        string sqlInserir = "INSERT INTO sexo (nomesexo) VALUES (@nomesexo)";
+        string sqlApagar = "DELETE FROM sexo WHERE codsexo = @codsexo";
+        string sqlTodos = "SELECT * FROM sexo";
+        string sqlEditar = "update sexo set nomesexo = @pnome where codsexo = @pcodsexo";
+        string sqlBuscaNome = "select * from sexo where nomesexo like @pnome";
+
+        public void apagaDados(int codSexo)
         {
             ConectaBanco cb = new ConectaBanco();
             con = cb.conectaSqlServer();
             cmd = new SqlCommand(sqlApagar, con);
 
-            //Passando parâmetros para a sentença SQL
-            cmd.Parameters.AddWithValue("@Id", cod);
+            cmd.Parameters.AddWithValue("@codsexo", codSexo);
             cmd.CommandType = CommandType.Text;
             con.Open();
 
@@ -38,13 +37,12 @@ namespace Projeto_Venda_2023.controller
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
                 {
-                    MessageBox.Show("Sexo deletado com Sucesso!!!\n" +
-                        "Código: " + cod);
+                    MessageBox.Show("Sexo apagado com sucesso!\nCódigo de Sexo: " + codSexo);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao Apagar!\nErro:" + ex.ToString());
+                MessageBox.Show("Erro ao apagar sexo!\nErro: " + ex.ToString());
             }
             finally
             {
@@ -54,65 +52,123 @@ namespace Projeto_Venda_2023.controller
 
         public DataTable buscarTodos()
         {
-            throw new NotImplementedException();
-        }
-
-
-        //List para carregar ComboBox da aplicação.
-        public List<Sexo> carregaDados()
-        {
-            List<Sexo> lista_sexo = new List<Sexo>();
-
             ConectaBanco cb = new ConectaBanco();
             con = cb.conectaSqlServer();
             cmd = new SqlCommand(sqlTodos, con);
-
             cmd.CommandType = CommandType.Text;
-            
-            SqlDataReader tabSexo; //Representa uma Tabela Virtual para a leitura de dados
-            con.Open();
 
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable sexos = new DataTable();
+
+            con.Open();
 
             try
             {
-                tabSexo = cmd.ExecuteReader();
-                while (tabSexo.Read())
-                {
-                   Sexo aux = new Sexo();
-                    
-                    aux.Codsexo = Int32.Parse(tabSexo["codsexo"].ToString());
-                    aux.Nomesexo = tabSexo["nomesexo"].ToString();
-
-                    lista_sexo.Add(aux);
-                }
+                da.Fill(sexos);
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao buscar sexos!\nErro: " + ex.ToString());
             }
-            finally { con.Close(); }
+            finally
+            {
+                con.Close();
+            }
 
-            return lista_sexo;
+            return sexos;
+        }
+
+        public DataTable buscarNome(String valor)
+        {
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlBuscaNome, con);
+
+            cmd.Parameters.AddWithValue("@pnome", valor + "%");
+            cmd.CommandType = CommandType.Text;
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable sexos = new DataTable();
+
+            con.Open();
+
+            try
+            {
+                da.Fill(sexos);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar sexos!\nErro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return sexos;
         }
 
         public void insereDados(object obj)
         {
-            Sexo sexo = new Sexo();
-            sexo = (Sexo)obj;
+            Sexo sexo = obj as Sexo;
+
+            if (sexo == null)
+            {
+                MessageBox.Show("Objeto Sexo inválido.");
+                return;
+            }
 
             ConectaBanco cb = new ConectaBanco();
             con = cb.conectaSqlServer();
-            cmd = new SqlCommand(sqlInsere, con);
+            cmd = new SqlCommand(sqlInserir, con);
 
-            cmd.Parameters.AddWithValue("@Nome", sexo.Nomesexo);
+            cmd.Parameters.AddWithValue("@nomesexo", sexo.Nomesexo);
             cmd.CommandType = CommandType.Text;
             con.Open();
+
             try
             {
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
                 {
-                    MessageBox.Show("Registro incluído com sucesso");
+                    MessageBox.Show("Sexo incluído com sucesso");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void editarDados(object obj)
+        {
+            Sexo sexo = obj as Sexo;
+
+            if (sexo == null)
+            {
+                MessageBox.Show("Objeto Sexo inválido.");
+                return;
+            }
+
+            ConectaBanco cb = new ConectaBanco();
+            con = cb.conectaSqlServer();
+            cmd = new SqlCommand(sqlEditar, con);
+
+            cmd.Parameters.AddWithValue("@pnome", sexo.Nomesexo);
+            cmd.Parameters.AddWithValue("@pcodsexo", sexo.Codsexo);
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+
+            try
+            {
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    MessageBox.Show("Sexo alterado com sucesso");
                 }
             }
             catch (Exception ex)
