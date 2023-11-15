@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Projeto_Venda_2023.controller
     {
         internal class C_Cliente : I_CRUD
@@ -100,7 +99,6 @@ namespace Projeto_Venda_2023.controller
                 cmd = new SqlCommand(sqlInsere, con);
 
                 cmd.Parameters.AddWithValue("@nomecliente", cliente.Nomecliente);
-                cmd.Parameters.AddWithValue("@foto", cliente.Foto);
                 cmd.Parameters.AddWithValue("@datanasc", cliente.Datanasc);
                 cmd.Parameters.AddWithValue("@codsexo", cliente.Sexo.Codsexo);
                 cmd.Parameters.AddWithValue("@codrua", cliente.Rua.Codrua);
