@@ -104,84 +104,84 @@
             this.acessoToolStripMenuItem.Name = "acessoToolStripMenuItem";
             this.acessoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.acessoToolStripMenuItem.Text = "Acesso";
-            this.acessoToolStripMenuItem.Click += new System.EventHandler(this.acessoToolStripMenuItem_Click);
+            this.acessoToolStripMenuItem.Click += new System.EventHandler(this.AcessoToolStripMenuItem_Click);
             // 
             // bairroToolStripMenuItem
             // 
             this.bairroToolStripMenuItem.Name = "bairroToolStripMenuItem";
             this.bairroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bairroToolStripMenuItem.Text = "Bairro";
-            this.bairroToolStripMenuItem.Click += new System.EventHandler(this.bairroToolStripMenuItem_Click);
+            this.bairroToolStripMenuItem.Click += new System.EventHandler(this.BairroToolStripMenuItem_Click);
             // 
             // cepToolStripMenuItem
             // 
             this.cepToolStripMenuItem.Name = "cepToolStripMenuItem";
             this.cepToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cepToolStripMenuItem.Text = "Cep";
-            this.cepToolStripMenuItem.Click += new System.EventHandler(this.cepToolStripMenuItem_Click);
+            this.cepToolStripMenuItem.Click += new System.EventHandler(this.CepToolStripMenuItem_Click);
             // 
             // cidadeToolStripMenuItem
             // 
             this.cidadeToolStripMenuItem.Name = "cidadeToolStripMenuItem";
             this.cidadeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cidadeToolStripMenuItem.Text = "Cidade";
-            this.cidadeToolStripMenuItem.Click += new System.EventHandler(this.cidadeToolStripMenuItem_Click);
+            this.cidadeToolStripMenuItem.Click += new System.EventHandler(this.CidadeToolStripMenuItem_Click);
             // 
             // funçãoToolStripMenuItem
             // 
             this.funçãoToolStripMenuItem.Name = "funçãoToolStripMenuItem";
             this.funçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.funçãoToolStripMenuItem.Text = "Função";
-            this.funçãoToolStripMenuItem.Click += new System.EventHandler(this.funçãoToolStripMenuItem_Click);
+            this.funçãoToolStripMenuItem.Click += new System.EventHandler(this.FunçãoToolStripMenuItem_Click);
             // 
             // lojaToolStripMenuItem
             // 
             this.lojaToolStripMenuItem.Name = "lojaToolStripMenuItem";
             this.lojaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.lojaToolStripMenuItem.Text = "Loja";
-            this.lojaToolStripMenuItem.Click += new System.EventHandler(this.lojaToolStripMenuItem_Click);
+            this.lojaToolStripMenuItem.Click += new System.EventHandler(this.LojaToolStripMenuItem_Click);
             // 
             // marcaToolStripMenuItem
             // 
             this.marcaToolStripMenuItem.Name = "marcaToolStripMenuItem";
             this.marcaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.marcaToolStripMenuItem.Text = "Marca";
-            this.marcaToolStripMenuItem.Click += new System.EventHandler(this.marcaToolStripMenuItem_Click);
+            this.marcaToolStripMenuItem.Click += new System.EventHandler(this.MarcaToolStripMenuItem_Click);
             // 
             // operadoraToolStripMenuItem
             // 
             this.operadoraToolStripMenuItem.Name = "operadoraToolStripMenuItem";
             this.operadoraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.operadoraToolStripMenuItem.Text = "Operadora";
-            this.operadoraToolStripMenuItem.Click += new System.EventHandler(this.operadoraToolStripMenuItem_Click);
+            this.operadoraToolStripMenuItem.Click += new System.EventHandler(this.OperadoraToolStripMenuItem_Click);
             // 
             // ruaToolStripMenuItem
             // 
             this.ruaToolStripMenuItem.Name = "ruaToolStripMenuItem";
             this.ruaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ruaToolStripMenuItem.Text = "Rua";
-            this.ruaToolStripMenuItem.Click += new System.EventHandler(this.ruaToolStripMenuItem_Click);
+            this.ruaToolStripMenuItem.Click += new System.EventHandler(this.RuaToolStripMenuItem_Click);
             // 
             // situaçãoToolStripMenuItem
             // 
             this.situaçãoToolStripMenuItem.Name = "situaçãoToolStripMenuItem";
             this.situaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.situaçãoToolStripMenuItem.Text = "Situação";
-            this.situaçãoToolStripMenuItem.Click += new System.EventHandler(this.situaçãoToolStripMenuItem_Click);
+            this.situaçãoToolStripMenuItem.Click += new System.EventHandler(this.SituaçãoToolStripMenuItem_Click);
             // 
             // tipoToolStripMenuItem
             // 
             this.tipoToolStripMenuItem.Name = "tipoToolStripMenuItem";
             this.tipoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tipoToolStripMenuItem.Text = "Tipo";
-            this.tipoToolStripMenuItem.Click += new System.EventHandler(this.tipoToolStripMenuItem_Click);
+            this.tipoToolStripMenuItem.Click += new System.EventHandler(this.TipoToolStripMenuItem_Click);
             // 
             // trabalhoToolStripMenuItem
             // 
             this.trabalhoToolStripMenuItem.Name = "trabalhoToolStripMenuItem";
             this.trabalhoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.trabalhoToolStripMenuItem.Text = "Trabalho";
-            this.trabalhoToolStripMenuItem.Click += new System.EventHandler(this.trabalhoToolStripMenuItem_Click);
+            this.trabalhoToolStripMenuItem.Click += new System.EventHandler(this.TrabalhoToolStripMenuItem_Click);
             // 
             // ufToolStripMenuItem
             // 
